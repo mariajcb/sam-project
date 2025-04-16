@@ -57,9 +57,17 @@ export interface Post {
   content?: any
 }
 
+export interface NavigationItem {
+  _key: string
+  title: string
+  link: string
+  description?: string
+}
+
 export interface Settings {
   title?: string
   description?: any[]
+  navigation?: NavigationItem[]
   ogImage?: {
     title?: string
   }

@@ -1,6 +1,6 @@
 import Container from 'components/BlogContainer'
-import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
+import Navigation from 'components/Navigation'
 import HeroPost from 'components/HeroPost'
 import IndexPageHead from 'components/IndexPageHead'
 import MoreStories from 'components/MoreStories'
@@ -19,7 +19,7 @@ export interface IndexPageProps {
 export default function IndexPage(props: IndexPageProps) {
   const { preview, loading, posts, settings } = props
   const [heroPost, ...morePosts] = posts || []
-  const { title = demo.title, description = demo.description } = settings || {}
+  const { title = demo.title } = settings || {}
 
   return (
     <>
@@ -27,7 +27,9 @@ export default function IndexPage(props: IndexPageProps) {
 
       <Layout preview={preview} loading={loading}>
         <Container>
-          <BlogHeader title={title} description={description} level={1} />
+          <header className="mb-10 mt-16 text-pretty">
+            <Navigation settings={settings} items={settings.navigation} />
+          </header>
           {heroPost && (
             <HeroPost
               title={heroPost.title}

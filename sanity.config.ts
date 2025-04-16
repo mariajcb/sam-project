@@ -17,9 +17,7 @@ import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
-import authorType from 'schemas/author'
-import postType from 'schemas/post'
-import settingsType from 'schemas/settings'
+import { schemaTypes } from 'schemas'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
@@ -31,12 +29,12 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [authorType, postType, settingsType],
+    types: schemaTypes,
   },
   plugins: [
     structureTool({
-      structure: settingsStructure(settingsType),
-      // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
+      structure: settingsStructure(schemaTypes.find(type => type.name === 'settings')),
+      // `defaultDocumentNode` is responsible for adding a "Preview" tab to the document pane
       defaultDocumentNode: previewDocumentNode(),
     }),
     presentationTool({
@@ -48,7 +46,7 @@ export default defineConfig({
       },
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    settingsPlugin({ type: settingsType.name }),
+    settingsPlugin({ type: 'settings' }),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

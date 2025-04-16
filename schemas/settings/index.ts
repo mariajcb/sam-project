@@ -3,6 +3,7 @@ import * as demo from 'lib/demo.data'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import OpenGraphInput from './OpenGraphInput'
+import navigationItem from './navigation'
 
 export default defineType({
   name: 'settings',
@@ -11,7 +12,7 @@ export default defineType({
   icon: CogIcon,
   preview: { select: { title: 'title', subtitle: 'description' } },
   // Uncomment below to have edits publish automatically as you type
-  // liveEdit: true,
+  liveEdit: true,
   fields: [
     defineField({
       name: 'title',
@@ -54,6 +55,14 @@ export default defineType({
         }),
       ],
       validation: (rule) => rule.max(155).required(),
+    }),
+    defineField({
+      name: 'navigation',
+      title: 'Navigation',
+      description: 'Configure the main navigation items for your site',
+      type: 'array',
+      of: [{ type: 'navigationItem' }],
+      validation: (rule) => rule.unique().required(),
     }),
     defineField({
       name: 'ogImage',
