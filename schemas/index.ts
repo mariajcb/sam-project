@@ -5,6 +5,7 @@ import navigationItemType from './settings/navigation'
 import blockContent from './blockContent'
 import category from './category'
 import home from './home'
+import about from './about'
 
 export const schemaTypes = [
   authorType,
@@ -14,4 +15,5 @@ export const schemaTypes = [
   blockContent,
   category,
   home,
+  about,
 ] 

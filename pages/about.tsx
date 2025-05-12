@@ -2,23 +2,40 @@ import Container from 'components/BlogContainer'
 import Layout from 'components/BlogLayout'
 import Navigation from 'components/Navigation'
 import type { Settings } from 'lib/sanity.queries'
+import { getClient } from 'lib/sanity.client'
+import { groq } from 'next-sanity'
+import AboutPage from 'components/AboutPage'
 
-export interface AboutPageProps {
+export interface PageProps {
   settings: Settings
+  about: {
+    title: string
+    mainImage: any
+    body: any
+  }
 }
 
-export default function AboutPage({ settings }: AboutPageProps) {
+export default function Page({ settings, about }: PageProps) {
   return (
     <Layout preview={false}>
       <Container>
         <Navigation items={settings?.navigation} settings={settings} />
-        <div className="max-w-2xl mx-auto mt-8">
-          <h1 className="text-4xl font-bold mb-6">About</h1>
-          <div className="prose prose-lg">
-            <p>Welcome to my about page. This is where you can learn more about me and my work.</p>
-          </div>
-        </div>
+        <AboutPage settings={settings} about={about} />
       </Container>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const client = getClient()
+  const settings = await client.fetch(groq`*[_type == "settings"][0]`)
+  const about = await client.fetch(groq`*[_type == "about"][0]`)
+
+  return {
+    props: {
+      settings,
+      about,
+    },
+    revalidate: 60,
+  }
 } 
