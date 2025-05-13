@@ -6,6 +6,7 @@ import blockContent from './blockContent'
 import category from './category'
 import home from './home'
 import about from './about'
+import videoType from './video'
 
 export const schemaTypes = [
   authorType,
@@ -16,4 +17,5 @@ export const schemaTypes = [
   category,
   home,
   about,
+  videoType,
 ] 

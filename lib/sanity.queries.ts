@@ -11,12 +11,35 @@ const postFields = groq`
   "author": author->{name, picture},
 `
 
+const videoFields = groq`
+  _id,
+  title,
+  date,
+  _updatedAt,
+  description,
+  videoUrl,
+  coverImage,
+  "slug": slug.current,
+  "categories": categories[]->{title, description},
+`
+
 export const settingsQuery = groq`*[_type == "settings"][0]`
 
 export const indexQuery = groq`
 *[_type == "post"] | order(date desc, _updatedAt desc) {
   ${postFields}
 }`
+
+export const videosQuery = groq`
+*[_type == "video"] | order(date desc, _updatedAt desc) {
+  ${videoFields}
+}`
+
+export const videoBySlugQuery = groq`
+*[_type == "video" && slug.current == $slug][0] {
+  ${videoFields}
+}
+`
 
 export const postAndMoreStoriesQuery = groq`
 {
@@ -34,16 +57,15 @@ export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `
 
+export const videoSlugsQuery = groq`
+*[_type == "video" && defined(slug.current)][].slug.current
+`
+
 export const postBySlugQuery = groq`
 *[_type == "post" && slug.current == $slug][0] {
   ${postFields}
 }
 `
-
-export interface Author {
-  name?: string
-  picture?: any
-}
 
 export interface Post {
   _id: string
@@ -55,6 +77,28 @@ export interface Post {
   author?: Author
   slug?: string
   content?: any
+}
+
+export interface Video {
+  _id: string
+  title?: string
+  coverImage?: any
+  date?: string
+  _updatedAt?: string
+  description?: string
+  videoUrl?: string
+  slug?: string
+  categories?: Category[]
+}
+
+export interface Category {
+  title: string
+  description?: string
+}
+
+export interface Author {
+  name: string
+  picture?: any
 }
 
 export interface NavigationItem {

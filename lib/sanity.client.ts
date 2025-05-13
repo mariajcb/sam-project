@@ -16,6 +16,14 @@ import {
 } from 'lib/sanity.queries'
 import { createClient, type SanityClient } from 'next-sanity'
 
+export const client = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn,
+  perspective: 'published',
+})
+
 export function getClient(preview?: { token: string }): SanityClient {
   const client = createClient({
     projectId,
@@ -23,22 +31,8 @@ export function getClient(preview?: { token: string }): SanityClient {
     apiVersion,
     useCdn,
     perspective: 'published',
-    stega: {
-      enabled: preview?.token ? true : false,
-      studioUrl,
-    },
+    token: preview?.token,
   })
-  if (preview) {
-    if (!preview.token) {
-      throw new Error('You must provide a token to preview drafts')
-    }
-    return client.withConfig({
-      token: preview.token,
-      useCdn: false,
-      ignoreBrowserTokenWarning: true,
-      perspective: 'drafts',
-    })
-  }
   return client
 }
 
@@ -69,5 +63,8 @@ export async function getPostAndMoreStories(
   client: SanityClient,
   slug: string,
 ): Promise<{ post: Post; morePosts: Post[] }> {
-  return await client.fetch(postAndMoreStoriesQuery, { slug })
+  return (await client.fetch(postAndMoreStoriesQuery, { slug })) || {
+    post: {} as any,
+    morePosts: [],
+  }
 }
