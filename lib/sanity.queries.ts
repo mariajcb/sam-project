@@ -115,4 +115,5 @@ export interface Settings {
   ogImage?: {
     title?: string
   }
+  showBlog?: boolean
 }

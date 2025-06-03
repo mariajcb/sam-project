@@ -65,6 +65,13 @@ export default defineType({
       validation: (rule) => rule.unique().required(),
     }),
     defineField({
+      name: 'showBlog',
+      title: 'Show Blog Section',
+      description: 'Toggle the visibility of the blog section on your site',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'ogImage',
       title: 'Open Graph Image',
       description:
