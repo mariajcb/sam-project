@@ -17,6 +17,11 @@ export default function Navigation({
   const title = settings?.title || 'Sam Di Lorenzo'
   const description = settings?.description || []
 
+  // Filter out blog-related navigation items if showBlog is false
+  const filteredItems = settings?.showBlog === false
+    ? items.filter(item => !item.link.startsWith('/posts'))
+    : items
+
   return (
     <div className={styles.navigationContainer}>
       <div className={styles.titleSection}>
@@ -27,7 +32,7 @@ export default function Navigation({
       </div>
       <nav className={styles.nav}>
         <ul className={styles.navList}>
-          {items.map((item) => (
+          {filteredItems.map((item) => (
             <li key={item._key} className={styles.navItem}>
               <Link
                 href={item.link}
