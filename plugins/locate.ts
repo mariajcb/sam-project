@@ -18,8 +18,8 @@ export const locate: DocumentLocationResolver = (params, context) => {
     return {
       locations: [
         {
-          title: 'Blog',
-          href: '/blog',
+          title: 'Posts',
+          href: '/posts',
         },
       ],
     }
@@ -30,8 +30,8 @@ export const locate: DocumentLocationResolver = (params, context) => {
     return {
       locations: [
         {
-          title: 'Blog',
-          href: '/blog',
+          title: 'Posts',
+          href: '/posts',
         },
       ],
     }

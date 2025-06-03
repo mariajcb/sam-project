@@ -59,9 +59,9 @@ export const previewDocumentNode = (): DefaultDocumentNodeResolver => {
             ...iframeOptions,
             url: {
               ...iframeOptions.url,
-              preview: () => '/blog',
+              preview: () => '/posts',
             },
-          }).title('Blog Preview'),
+          }).title('Posts Preview'),
         ])
       default:
         return null
