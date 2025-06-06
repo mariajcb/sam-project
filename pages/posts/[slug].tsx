@@ -1,5 +1,7 @@
 import PostPage from 'components/PostPage'
 import PreviewPostPage from 'components/PreviewPostPage'
+import ClientPostsRouter from 'components/ClientPostsRouter'
+import StructuredData from 'components/StructuredData'
 import { readToken } from 'lib/sanity.api'
 import {
   getAllPostsSlugs,
@@ -9,7 +11,7 @@ import {
 } from 'lib/sanity.client'
 import { Post, Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
+import Head from 'next/head'
 import type { SharedPageProps } from 'pages/_app'
 
 interface PageProps extends SharedPageProps {
@@ -20,19 +22,38 @@ interface PageProps extends SharedPageProps {
 
 export default function Page(props: PageProps) {
   const { post, morePosts, settings, draftMode } = props
-  const router = useRouter()
-
-  // Redirect to home if blog is hidden
-  if (settings?.showBlog === false) {
-    router.replace('/')
-    return null
-  }
 
   if (draftMode) {
     return <PreviewPostPage {...props} />
   }
 
-  return <PostPage {...props} />
+  return (
+    <ClientPostsRouter settings={settings}>
+      <Head>
+        <title>{post.title} | {settings.title}</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={`${post.title} | ${settings.title}`} />
+        <meta property="og:description" content={post.excerpt} />
+        {post.coverImage && (
+          <meta property="og:image" content={post.coverImage.url} />
+        )}
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+      <StructuredData
+        type="BlogPosting"
+        name={post.title}
+        description={post.excerpt}
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/posts/${post.slug}`}
+        image={post.coverImage?.url}
+        datePublished={post.date}
+        dateModified={post._updatedAt}
+        author={post.author ? {
+          name: post.author.name
+        } : undefined}
+      />
+      <PostPage {...props} />
+    </ClientPostsRouter>
+  )
 }
 
 export const getStaticProps: GetStaticProps<PageProps> = async (ctx) => {

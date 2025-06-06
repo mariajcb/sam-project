@@ -4,13 +4,14 @@ import Navigation from 'components/Navigation'
 import IndexPageHead from 'components/IndexPageHead'
 import IntroTemplate from 'intro-template'
 import * as demo from 'lib/demo.data'
-import type { Settings } from 'lib/sanity.queries'
+import type { Post, Settings } from 'lib/sanity.queries'
 import { Suspense } from 'react'
 
 export interface IndexPageProps {
   preview?: boolean
   loading?: boolean
   settings: Settings
+  posts?: Post[]
 }
 
 export default function IndexPage(props: IndexPageProps) {

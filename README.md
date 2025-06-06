@@ -65,6 +65,14 @@ Use the Deploy Button below. It will let you deploy the starter using [Vercel](h
 
 [![Deploy with Vercel](https://vercel.com/button)][vercel-deploy]
 
+#### Environment Variables
+
+The following environment variables are required:
+
+- `NEXT_PUBLIC_SITE_URL`: The full URL of your site (e.g., `https://your-domain.com` for production, `http://localhost:3000` for development)
+  - Used for SEO meta tags and structured data
+  - Must be set in both development and production environments
+
 ### Step 2. Set up the project locally
 
 [Clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) that was created for you on your GitHub account. Once cloned, run the following command from the project's root directory:
