@@ -55,27 +55,47 @@
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
   position: relative;
 }
 
-.navLink:hover {
-  color: #666;
+.navLink:hover,
+.navLink.active {
+  background: linear-gradient(90deg, #ff69b4, #9370db);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .navLink::after {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
-  bottom: -4px;
+  height: 3px;
+  bottom: -15px;
   left: 0;
-  background-color: #333;
-  transition: width 0.2s ease;
+  background: linear-gradient(90deg, #ff69b4, #9370db);
+  background-size: 200% 200%;
+  transition: width 0.3s ease;
 }
 
 .navLink:hover::after {
   width: 100%;
+  animation: gradientAnimation 3s ease infinite;
 }
 
 .navLink.active {
@@ -85,7 +105,9 @@
 
 .navLink.active::after {
   width: 100%;
-  background-color: #000;
+  background: linear-gradient(90deg, #ff69b4, #9370db);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s ease infinite;
 }
 
 /* Responsive styles */
