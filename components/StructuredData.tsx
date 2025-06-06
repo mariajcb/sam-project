@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import DOMPurify from 'dompurify'
 
 type StructuredDataType = 'Blog' | 'BlogPosting' | 'WebPage' | 'Organization'
 
@@ -45,12 +44,10 @@ const StructuredData: FC<StructuredDataProps> = ({
     }),
   }
 
-  const sanitizedData = DOMPurify.sanitize(JSON.stringify(structuredData))
-
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: sanitizedData }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
     />
   )
 }
