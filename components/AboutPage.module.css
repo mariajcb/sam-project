@@ -68,25 +68,28 @@
   border: 5px solid white;
   border-radius: 0.5rem;
   z-index: 1;
-  transition: all 0.3s ease;
-}
-
-.contentWrapper:hover .outerBorder {
-  border-image: linear-gradient(90deg, #ff69b4, #9370db) 1;
-  animation: gradientAnimation 3s ease infinite;
 }
 
 .innerBorder {
   position: absolute;
-  inset: 8px;
-  border: 2px solid black;
+  inset: 5px;
+  border: 3px solid black;
   border-radius: 0.5rem;
   z-index: 2;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .contentWrapper:hover .innerBorder {
-  opacity: 0;
+  border: none;
+  background: linear-gradient(90deg, #ff69b4, #9370db);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s ease infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 3px;
 }
 
 .content {
