@@ -61,7 +61,7 @@
 
 .navLink:hover,
 .navLink.active {
-  background: linear-gradient(90deg, #ff69b4, #9370db);
+  background: linear-gradient(90deg, var(--theme-pink), var(--theme-purple));
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -88,7 +88,7 @@
   height: 3px;
   bottom: -15px;
   left: 0;
-  background: linear-gradient(90deg, #ff69b4, #9370db);
+  background: linear-gradient(90deg, var(--theme-pink), var(--theme-purple));
   background-size: 200% 200%;
   transition: width 0.3s ease;
 }
@@ -105,7 +105,7 @@
 
 .navLink.active::after {
   width: 100%;
-  background: linear-gradient(90deg, #ff69b4, #9370db);
+  background: linear-gradient(90deg, var(--theme-pink), var(--theme-purple));
   background-size: 200% 200%;
   animation: gradientAnimation 3s ease infinite;
 }

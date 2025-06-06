@@ -81,7 +81,7 @@
 
 .contentWrapper:hover .innerBorder {
   border: none;
-  background: linear-gradient(90deg, #ff69b4, #9370db);
+  background: linear-gradient(90deg, var(--theme-pink), var(--theme-purple));
   background-size: 200% 200%;
   animation: gradientAnimation 3s ease infinite;
   -webkit-mask: 
