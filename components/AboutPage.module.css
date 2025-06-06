@@ -1,0 +1,109 @@
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.contentWrapper {
+  position: relative;
+  transform: rotate(1deg);
+  transition: transform 0.3s ease;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.contentWrapper:hover {
+  transform: rotate(0deg);
+}
+
+.outerBorder {
+  position: absolute;
+  inset: 0;
+  border: 5px solid white;
+  border-radius: 0.5rem;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.contentWrapper:hover .outerBorder {
+  border-image: linear-gradient(90deg, #ff69b4, #9370db) 1;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+.innerBorder {
+  position: absolute;
+  inset: 8px;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.contentWrapper:hover .innerBorder {
+  opacity: 0;
+}
+
+.content {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  position: relative;
+  z-index: 0;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.prose {
+  font-size: 1.125rem;
+  line-height: 1.75;
+} 
