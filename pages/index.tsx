@@ -20,7 +20,7 @@ interface HomePageProps {
 export default function HomePage({ settings, home }: HomePageProps) {
   return (
     <Layout preview={false}>
-      <Container>
+      <Container padding="small">
         <Navigation items={settings?.navigation} settings={settings} />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">

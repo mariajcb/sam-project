@@ -37,8 +37,8 @@ export default function PostsPage({ posts, settings }: PostsPageProps) {
         url={`${process.env.NEXT_PUBLIC_SITE_URL}/posts`}
       />
       <Layout preview={false}>
-        <Container>
-          <header className="mb-10 mt-16 text-pretty">
+        <Container padding="small">
+          <header className="mb-8 text-pretty">
             <Navigation settings={settings} items={settings.navigation} />
           </header>
           <h1 className="text-6xl font-bold mb-12">Posts</h1>

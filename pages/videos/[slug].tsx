@@ -22,7 +22,7 @@ export default function VideoPage({ video, settings }: VideoPageProps) {
 
   return (
     <Layout preview={false}>
-      <Container>
+      <Container padding="small">
         <Navigation items={settings?.navigation} settings={settings} />
         <div className="max-w-4xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold mb-6">{video.title}</h1>

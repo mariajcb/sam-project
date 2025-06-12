@@ -18,7 +18,7 @@ export interface PageProps {
 export default function Page({ settings, about }: PageProps) {
   return (
     <Layout preview={false}>
-      <Container>
+      <Container padding="small">
         <Navigation items={settings?.navigation} settings={settings} />
         <AboutPage settings={settings} about={about} />
       </Container>
