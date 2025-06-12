@@ -1,4 +1,5 @@
 import AlertBanner from 'components/AlertBanner'
+import Background from 'components/Background'
 
 export default function BlogLayout({
   preview,
@@ -11,9 +12,10 @@ export default function BlogLayout({
 }) {
   return (
     <>
-      <div className="min-h-screen">
+      <Background />
+      <div className="relative min-h-screen">
         <AlertBanner preview={preview} loading={loading} />
-        <main>{children}</main>
+        <main className="relative z-10">{children}</main>
       </div>
     </>
   )

@@ -3,7 +3,18 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
+  /* Base Colors */
   --color-success: #0070f3;
   --theme-pink: #ff69b4;
   --theme-purple: #9370db;
+  
+  /* Color Variations */
+  --theme-pink-light: rgba(255, 105, 180, 0.5);
+  --theme-purple-light: rgba(147, 112, 219, 0.5);
+  --theme-pink-dark: #cc4f8f;
+  --theme-purple-dark: #6b4fa3;
+  
+  /* Gradient Definitions */
+  --gradient-primary: linear-gradient(45deg, var(--theme-pink-light), var(--theme-purple-light));
+  --gradient-hover: linear-gradient(45deg, var(--theme-pink), var(--theme-purple));
 }
