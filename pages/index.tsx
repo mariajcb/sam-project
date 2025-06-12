@@ -1,6 +1,7 @@
 import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
 import Navigation from 'components/Navigation'
+import TextBox from 'components/TextBox'
 import { urlForImage } from 'lib/sanity.image'
 import type { Settings } from 'lib/sanity.queries'
 import { getClient } from 'lib/sanity.client'
@@ -24,7 +25,7 @@ export default function HomePage({ settings, home }: HomePageProps) {
         <Navigation items={settings?.navigation} settings={settings} />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
-            <div className="relative w-3/4 md:w-4/5 lg:w-full mx-auto aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+            <div className="relative w-3/4 md:w-4/5 lg:w-full mx-auto aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-lg">
               {/* Frame outer border */}
               <div className="absolute inset-0 border-[8px] border-white/90 rounded-lg shadow-lg"></div>
               {/* Frame inner border */}
@@ -44,16 +45,12 @@ export default function HomePage({ settings, home }: HomePageProps) {
                 />
               </div>
             </div>
-            <div className="relative transform rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div className="absolute inset-0 border-[8px] border-white/90 rounded-lg"></div>
-              <div className="absolute inset-[8px] border-[2px] border-black/70 rounded-lg"></div>
-              <div className="bg-white/95 p-8 rounded-lg shadow-lg">
-                <h1 className="text-4xl font-bold mb-6 text-gray-900">{home.title}</h1>
-                <div className="prose prose-lg text-gray-800">
-                  <p>{home.description}</p>
-                </div>
+            <TextBox>
+              <h1 className="text-4xl font-bold mb-6 text-gray-900">{home.title}</h1>
+              <div className="prose prose-lg text-gray-800">
+                <p>{home.description}</p>
               </div>
-            </div>
+            </TextBox>
           </div>
         </div>
       </Container>
