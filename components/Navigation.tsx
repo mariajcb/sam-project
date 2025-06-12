@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { PortableText } from 'next-sanity'
 import styles from './Navigation.module.css'
 import type { NavigationItem, Settings } from 'lib/sanity.queries'
 
@@ -25,6 +26,9 @@ export default function Navigation({
     <div className={styles.navigationContainer}>
       <div className={styles.titleSection}>
         <h1 className={styles.title}>{title}</h1>
+        <div className={styles.description}>
+          <PortableText value={description} />
+        </div>
       </div>
       <nav className={styles.nav}>
         <ul className={styles.navList}>
