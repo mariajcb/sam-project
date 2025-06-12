@@ -1,4 +1,4 @@
-import Container from 'components/BlogContainer'
+import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
 import Navigation from 'components/Navigation'
 import HeroPost from 'components/HeroPost'
