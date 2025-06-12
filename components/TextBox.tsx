@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import styles from '../styles/TextBox.module.css'
+import styles from '../styles/components/TextBox.module.css'
 
 interface TextBoxProps {
   children: ReactNode
