@@ -79,6 +79,16 @@
   background: #000;
 }
 
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.titleLink:hover {
+  opacity: 0.8;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .navigationContainer {

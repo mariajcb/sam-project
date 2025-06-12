@@ -3,7 +3,7 @@ import type { Settings } from 'lib/sanity.queries'
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import TextBox from 'components/TextBox'
-import styles from './AboutPage.module.css'
+import styles from '../styles/AboutPage.module.css'
 
 export interface AboutPageProps {
   settings: Settings

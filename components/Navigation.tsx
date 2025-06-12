@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { PortableText } from 'next-sanity'
-import styles from './Navigation.module.css'
+import styles from '../styles/Navigation.module.css'
 import type { NavigationItem, Settings } from 'lib/sanity.queries'
 
 interface NavigationProps {
@@ -25,10 +25,12 @@ export default function Navigation({
   return (
     <div className={styles.navigationContainer}>
       <div className={styles.titleSection}>
-        <h1 className={styles.title}>{title}</h1>
-        <div className={styles.description}>
-          <PortableText value={description} />
-        </div>
+        <Link href="/" className={styles.titleLink}>
+          <h1 className={styles.title}>{title}</h1>
+          <div className={styles.description}>
+            <PortableText value={description} />
+          </div>
+        </Link>
       </div>
       <nav className={styles.nav}>
         <ul className={styles.navList}>
