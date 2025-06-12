@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   width: 100%;
 }
 
@@ -16,11 +16,12 @@
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
+  color: #000;
 }
 
 .description {
   font-size: 1rem;
-  color: #666;
+  color: #4A4A4A;
   margin: 0.25rem 0 0;
 }
 
@@ -43,7 +44,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .navItem {
@@ -51,51 +52,16 @@
 }
 
 .navLink {
-  color: #333;
+  color: #4A4A4A;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: color 0.2s ease;
   position: relative;
 }
 
-.navLink:hover,
-.navLink.active {
-  background: linear-gradient(90deg, var(--theme-pink), var(--theme-purple));
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientAnimation 3s ease infinite;
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.navLink::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 3px;
-  bottom: -15px;
-  left: 0;
-  background: linear-gradient(90deg, var(--theme-pink), var(--theme-purple));
-  background-size: 200% 200%;
-  transition: width 0.3s ease;
-}
-
-.navLink:hover::after {
-  width: 100%;
-  animation: gradientAnimation 3s ease infinite;
+.navLink:hover {
+  color: #000;
 }
 
 .navLink.active {
@@ -104,10 +70,13 @@
 }
 
 .navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
   width: 100%;
-  background: linear-gradient(90deg, var(--theme-pink), var(--theme-purple));
-  background-size: 200% 200%;
-  animation: gradientAnimation 3s ease infinite;
+  height: 2px;
+  background: #000;
 }
 
 /* Responsive styles */
@@ -118,11 +87,12 @@
   }
   
   .titleSection {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .navList {
     width: 100%;
     justify-content: flex-start;
+    gap: 2rem;
   }
 } 

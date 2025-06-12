@@ -2,7 +2,6 @@ import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
 import Navigation from 'components/Navigation'
 import IndexPageHead from 'components/IndexPageHead'
-import IntroTemplate from 'intro-template'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import { Suspense } from 'react'
@@ -28,9 +27,6 @@ export default function IndexPage(props: IndexPageProps) {
             <Navigation settings={settings} items={settings.navigation} />
           </header>
         </Container>
-        <Suspense>
-          <IntroTemplate />
-        </Suspense>
       </Layout>
     </>
   )

@@ -14,6 +14,14 @@ export interface AboutPageProps {
   }
 }
 
+const components = {
+  block: {
+    normal: ({ children }: { children?: React.ReactNode }) => (
+      <p className={styles.paragraph}>{children}</p>
+    ),
+  },
+}
+
 export default function AboutPage({ settings, about }: AboutPageProps) {
   return (
     <div className={styles.container}>
@@ -32,7 +40,7 @@ export default function AboutPage({ settings, about }: AboutPageProps) {
         <TextBox>
           <h1 className={styles.title}>{about.title}</h1>
           <div className={styles.prose}>
-            <PortableText value={about.body} />
+            <PortableText value={about.body} components={components} />
           </div>
         </TextBox>
       </div>
