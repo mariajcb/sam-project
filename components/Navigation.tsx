@@ -1,21 +1,11 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { PortableText } from '@portabletext/react'
-import type { PortableTextBlock } from '@portabletext/types'
 import styles from './Navigation.module.css'
 import type { NavigationItem, Settings } from 'lib/sanity.queries'
 
 interface NavigationProps {
   items?: NavigationItem[]
   settings?: Settings
-}
-
-const components = {
-  block: {
-    normal: ({ children }: { children?: React.ReactNode }) => (
-      <p className={styles.description}>{children}</p>
-    ),
-  },
 }
 
 export default function Navigation({ 
@@ -35,9 +25,6 @@ export default function Navigation({
     <div className={styles.navigationContainer}>
       <div className={styles.titleSection}>
         <h1 className={styles.title}>{title}</h1>
-        <div className={styles.description}>
-          <PortableText value={description} components={components} />
-        </div>
       </div>
       <nav className={styles.nav}>
         <ul className={styles.navList}>
