@@ -27,7 +27,7 @@ export default function HomePage({ settings, home }: HomePageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
             <div className="relative w-3/4 md:w-4/5 lg:w-full mx-auto aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-lg">
               {/* Frame outer border */}
-              <div className="absolute inset-0 border-[8px] border-white/90 rounded-lg shadow-lg"></div>
+              <div className="absolute inset-0 border-[14px] border-white/90 rounded-lg shadow-lg"></div>
               {/* Frame inner border */}
               <div className="absolute inset-[8px] border-[2px] border-black/70 rounded-lg"></div>
               {/* Frame mat */}

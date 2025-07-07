@@ -38,7 +38,7 @@ export default function PostsPage({ posts, settings }: PostsPageProps) {
       />
       <Layout preview={false}>
         <Container padding="small">
-          <header className="mb-8 text-pretty">
+          <header className="mb-8 mt-8 text-pretty">
             <Navigation settings={settings} items={settings.navigation} />
           </header>
           <h1 className="text-6xl font-bold mb-12">Posts</h1>
