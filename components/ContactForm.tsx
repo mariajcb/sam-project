@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Button from './Button'
 
 interface FormData {
   name: string
@@ -195,13 +196,16 @@ export default function ContactForm() {
           </div>
         )}
 
-        <button
+        <Button
           type="submit"
+          variant="gradient"
+          size="lg"
           disabled={isSubmitting}
-          className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          loading={isSubmitting}
+          className="w-full"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
-        </button>
+        </Button>
       </form>
     </div>
   )

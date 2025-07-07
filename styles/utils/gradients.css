@@ -1,3 +1,33 @@
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4), 0 0 40px rgba(147, 112, 219, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.6), 0 0 60px rgba(147, 112, 219, 0.5);
+  }
+}
+
+@keyframes hoverGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3), 0 0 30px rgba(147, 112, 219, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.5), 0 0 50px rgba(147, 112, 219, 0.4);
+  }
+}
+
 /* Gradient Border Effect */
 .gradient-border {
   position: relative;
@@ -49,4 +79,317 @@
 .gradient-underline:hover::after {
   width: 100%;
   animation: gradientAnimation 3s ease infinite;
+}
+
+/* Gradient Button Variants */
+.gradient-button {
+  position: relative;
+  background: linear-gradient(45deg, var(--theme-pink-dark), var(--theme-purple-dark));
+  background-size: 200% 200%;
+  border: none;
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.gradient-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--theme-pink-dark), var(--theme-purple-dark));
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+}
+
+.gradient-button:hover {
+  animation: gradientAnimation 1s ease infinite;
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 
+    0 20px 40px rgba(255, 105, 180, 0.6), 
+    0 0 40px rgba(147, 112, 219, 0.5),
+    0 0 80px rgba(255, 105, 180, 0.3);
+  animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+.gradient-button:hover::before {
+  opacity: 0.1;
+}
+
+.gradient-button:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 4px rgba(255, 105, 180, 0.3),
+    0 0 0 8px rgba(147, 112, 219, 0.2),
+    0 15px 35px rgba(255, 105, 180, 0.4),
+    0 0 30px rgba(147, 112, 219, 0.3);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.gradient-button:focus:hover {
+  animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+.gradient-button:active {
+  transform: translateY(-2px) scale(0.95);
+  box-shadow: 
+    0 10px 25px rgba(255, 105, 180, 0.5),
+    0 0 25px rgba(147, 112, 219, 0.4);
+  transition: all 0.1s ease;
+}
+
+/* Gradient Outline Button */
+.gradient-button-outline {
+  position: relative;
+  background: transparent;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.gradient-button-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--theme-pink-dark), var(--theme-purple-dark));
+  background-size: 200% 200%;
+  border-radius: inherit;
+  padding: 2px;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: all 0.2s ease;
+}
+
+.gradient-button-outline:hover::before {
+  animation: gradientAnimation 1s ease infinite;
+  transform: scale(1.02);
+}
+
+.gradient-button-outline:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 
+    0 15px 35px rgba(255, 105, 180, 0.5),
+    0 0 30px rgba(147, 112, 219, 0.4),
+    0 0 60px rgba(255, 105, 180, 0.2);
+  color: white;
+  animation: hoverGlow 1s ease-in-out infinite;
+}
+
+.gradient-button-outline:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 4px rgba(255, 105, 180, 0.3),
+    0 0 0 8px rgba(147, 112, 219, 0.2),
+    0 12px 30px rgba(255, 105, 180, 0.3),
+    0 0 25px rgba(147, 112, 219, 0.2);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.gradient-button-outline:focus:hover {
+  animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+.gradient-button-outline:active {
+  transform: translateY(-2px) scale(0.95);
+  box-shadow: 
+    0 8px 20px rgba(255, 105, 180, 0.4),
+    0 0 20px rgba(147, 112, 219, 0.3);
+  transition: all 0.1s ease;
+}
+
+/* Gradient Text Button */
+.gradient-button-text {
+  position: relative;
+  background: transparent;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.gradient-button-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--theme-pink-dark), var(--theme-purple-dark));
+  background-size: 200% 200%;
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+}
+
+.gradient-button-text:hover::before {
+  opacity: 0.4;
+  animation: gradientAnimation 1s ease infinite;
+}
+
+.gradient-button-text:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    0 12px 25px rgba(255, 105, 180, 0.4),
+    0 0 20px rgba(147, 112, 219, 0.3);
+  animation: hoverGlow 1s ease-in-out infinite;
+}
+
+.gradient-button-text:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 4px rgba(255, 105, 180, 0.3),
+    0 0 0 8px rgba(147, 112, 219, 0.2),
+    0 8px 20px rgba(255, 105, 180, 0.2),
+    0 0 15px rgba(147, 112, 219, 0.15);
+  transform: translateY(-1px) scale(1.02);
+}
+
+.gradient-button-text:focus:hover {
+  animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+.gradient-button-text:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 
+    0 6px 15px rgba(255, 105, 180, 0.3),
+    0 0 12px rgba(147, 112, 219, 0.2);
+  transition: all 0.1s ease;
+}
+
+/* Glass Button */
+.glass-button {
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow, backdrop-filter;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--theme-pink-dark), var(--theme-purple-dark));
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+}
+
+.glass-button:hover::before {
+  opacity: 0.5;
+  animation: gradientAnimation 1s ease infinite;
+}
+
+.glass-button:hover {
+  transform: translateY(-6px) scale(1.08);
+  border-color: rgba(255, 105, 180, 0.7);
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 
+    0 20px 40px rgba(255, 105, 180, 0.4),
+    0 0 35px rgba(147, 112, 219, 0.3),
+    0 0 70px rgba(255, 105, 180, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: hoverGlow 1s ease-in-out infinite;
+}
+
+.glass-button:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 4px rgba(255, 105, 180, 0.3),
+    0 0 0 8px rgba(147, 112, 219, 0.2),
+    0 15px 35px rgba(255, 105, 180, 0.2),
+    0 0 30px rgba(147, 112, 219, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(255, 105, 180, 0.5);
+}
+
+.glass-button:focus:hover {
+  animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+.glass-button:active {
+  transform: translateY(-2px) scale(0.95);
+  box-shadow: 
+    0 10px 25px rgba(255, 105, 180, 0.3),
+    0 0 20px rgba(147, 112, 219, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.1s ease;
+}
+
+/* Enhanced Focus States for Original Button Variants */
+.bg-theme-purple:focus,
+.bg-theme-purple-dark:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 4px rgba(147, 112, 219, 0.3),
+    0 0 0 8px rgba(147, 112, 219, 0.2),
+    0 8px 20px rgba(147, 112, 219, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.bg-theme-pink:focus,
+.bg-theme-pink-dark:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 4px rgba(255, 105, 180, 0.3),
+    0 0 0 8px rgba(255, 105, 180, 0.2),
+    0 8px 20px rgba(255, 105, 180, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.border-theme-purple:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 4px rgba(147, 112, 219, 0.3),
+    0 0 0 8px rgba(147, 112, 219, 0.2),
+    0 8px 20px rgba(147, 112, 219, 0.2);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Enhanced Hover States for Original Button Variants */
+.bg-theme-purple:hover,
+.bg-theme-purple-dark:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    0 12px 25px rgba(147, 112, 219, 0.5),
+    0 0 20px rgba(147, 112, 219, 0.4);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-theme-pink:hover,
+.bg-theme-pink-dark:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    0 12px 25px rgba(255, 105, 180, 0.5),
+    0 0 20px rgba(255, 105, 180, 0.4);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.border-theme-purple:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    0 12px 25px rgba(147, 112, 219, 0.4),
+    0 0 20px rgba(147, 112, 219, 0.3);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 } 
