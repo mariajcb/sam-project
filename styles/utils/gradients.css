@@ -1,0 +1,52 @@
+/* Gradient Border Effect */
+.gradient-border {
+  position: relative;
+  border: 3px solid black;
+  border-radius: var(--radius-md);
+  transition: var(--transition-normal);
+}
+
+.gradient-border:hover {
+  border: none;
+  background: var(--gradient-hover);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s ease infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 3px;
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: var(--gradient-hover);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+/* Gradient Underline Effect */
+.gradient-underline {
+  position: relative;
+}
+
+.gradient-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -15px;
+  left: 0;
+  background: var(--gradient-hover);
+  background-size: 200% 200%;
+  transition: width var(--transition-normal);
+}
+
+.gradient-underline:hover::after {
+  width: 100%;
+  animation: gradientAnimation 3s ease infinite;
+} 

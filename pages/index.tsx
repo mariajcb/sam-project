@@ -1,6 +1,7 @@
-import Container from 'components/BlogContainer'
+import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
 import Navigation from 'components/Navigation'
+import TextBox from 'components/TextBox'
 import { urlForImage } from 'lib/sanity.image'
 import type { Settings } from 'lib/sanity.queries'
 import { getClient } from 'lib/sanity.client'
@@ -20,19 +21,19 @@ interface HomePageProps {
 export default function HomePage({ settings, home }: HomePageProps) {
   return (
     <Layout preview={false}>
-      <Container>
+      <Container padding="small">
         <Navigation items={settings?.navigation} settings={settings} />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
-            <div className="relative w-3/4 md:w-4/5 lg:w-full mx-auto aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-lg group transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+            <div className="relative w-3/4 md:w-4/5 lg:w-full mx-auto aspect-[4/3] md:aspect-[3/4] overflow-hidden rounded-lg">
               {/* Frame outer border */}
-              <div className="absolute inset-0 border-[8px] border-white rounded-lg z-10 shadow-lg"></div>
+              <div className="absolute inset-0 border-[14px] border-white/90 rounded-lg shadow-lg"></div>
               {/* Frame inner border */}
-              <div className="absolute inset-[8px] border-[2px] border-black rounded-lg z-10"></div>
+              <div className="absolute inset-[8px] border-[2px] border-black/70 rounded-lg"></div>
               {/* Frame mat */}
-              <div className="absolute inset-[10px] border-[20px] border-white rounded-lg z-10"></div>
+              <div className="absolute inset-[10px] border-[55px] border-white/90 rounded-lg"></div>
               {/* Image container with slight padding */}
-              <div className="absolute inset-[60px] z-0">
+              <div className="absolute inset-[60px]">
                 <Image
                   src={urlForImage(home.image).width(600).height(800).url()}
                   alt={home.imageDescription}
@@ -44,16 +45,12 @@ export default function HomePage({ settings, home }: HomePageProps) {
                 />
               </div>
             </div>
-            <div className="relative transform rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div className="absolute inset-0 border-[8px] border-white rounded-lg z-10"></div>
-              <div className="absolute inset-[8px] border-[2px] border-black rounded-lg z-10"></div>
-              <div className="bg-white p-8 rounded-lg relative z-0">
-                <h1 className="text-4xl font-bold mb-6">{home.title}</h1>
-                <div className="prose prose-lg">
-                  <p>{home.description}</p>
-                </div>
+            <TextBox>
+              <h1 className="text-4xl font-bold mb-6 text-gray-900">{home.title}</h1>
+              <div className="prose prose-lg text-gray-800">
+                <p>{home.description}</p>
               </div>
-            </div>
+            </TextBox>
           </div>
         </div>
       </Container>

@@ -1,0 +1,50 @@
+:root {
+  /* Base Colors */
+  --color-success: #0070f3;
+  --theme-pink: #ff69b4;
+  --theme-purple: #9370db;
+  
+  /* Color Variations */
+  --theme-pink-light: rgba(255, 105, 180, 0.5);
+  --theme-purple-light: rgba(147, 112, 219, 0.5);
+  --theme-pink-dark: #cc4f8f;
+  --theme-purple-dark: #6b4fa3;
+  
+  /* Gradient Definitions */
+  --gradient-primary: linear-gradient(45deg, var(--theme-pink-light), var(--theme-purple-light));
+  --gradient-hover: linear-gradient(45deg, var(--theme-pink), var(--theme-purple));
+
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Container */
+  --container-max-width: 72rem;
+  --container-padding: var(--spacing-md);
+
+  /* Typography */
+  --font-size-sm: 1rem;
+  --font-size-base: 1.1rem;
+  --font-size-lg: 1.8rem;
+  --font-size-xl: 2.25rem;
+  
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+} 

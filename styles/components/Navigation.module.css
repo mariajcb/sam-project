@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
   width: 100%;
 }
 
@@ -16,11 +16,12 @@
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
+  color: #000;
 }
 
 .description {
   font-size: 1rem;
-  color: #666;
+  color: #4A4A4A;
   margin: 0.25rem 0 0;
 }
 
@@ -43,7 +44,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .navItem {
@@ -51,7 +52,7 @@
 }
 
 .navLink {
-  color: #333;
+  color: #4A4A4A;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
@@ -60,22 +61,7 @@
 }
 
 .navLink:hover {
-  color: #666;
-}
-
-.navLink::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: #333;
-  transition: width 0.2s ease;
-}
-
-.navLink:hover::after {
-  width: 100%;
+  color: #000;
 }
 
 .navLink.active {
@@ -84,8 +70,23 @@
 }
 
 .navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
   width: 100%;
-  background-color: #000;
+  height: 2px;
+  background: #000;
+}
+
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.titleLink:hover {
+  opacity: 0.8;
 }
 
 /* Responsive styles */
@@ -96,11 +97,12 @@
   }
   
   .titleSection {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .navList {
     width: 100%;
     justify-content: flex-start;
+    gap: 2rem;
   }
 } 

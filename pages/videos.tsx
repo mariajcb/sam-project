@@ -1,4 +1,4 @@
-import Container from 'components/BlogContainer'
+import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
 import Navigation from 'components/Navigation'
 import VideoGallery from 'components/VideoGallery'
@@ -15,7 +15,7 @@ export interface VideosPageProps {
 export default function VideosPage({ settings, videos }: VideosPageProps) {
   return (
     <Layout preview={false}>
-      <Container>
+      <Container padding="small">
         <Navigation items={settings?.navigation} settings={settings} />
         <div className="max-w-7xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold mb-6">Videos</h1>
