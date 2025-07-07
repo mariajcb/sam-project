@@ -1,6 +1,8 @@
 import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
 import Navigation from 'components/Navigation'
+import ContactForm from 'components/ContactForm'
+import TextBox from 'components/TextBox'
 import type { Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { client } from 'lib/sanity.client'
@@ -16,18 +18,17 @@ export default function ContactPage({ settings }: ContactPageProps) {
       <Container padding="small">
         <Navigation items={settings?.navigation} settings={settings} />
         <div className="max-w-2xl mx-auto mt-8">
-          <h1 className="text-4xl font-bold mb-6">Contact</h1>
-          <div className="prose prose-lg">
-            <p>Get in touch with me for collaborations, inquiries, or just to say hello!</p>
-            <div className="mt-8">
-              <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-              <ul className="list-none space-y-2">
-                <li>Email: your.email@example.com</li>
-                <li>Phone: (123) 456-7890</li>
-                <li>Location: Your City, Country</li>
-              </ul>
+          <TextBox>
+            <h1 className="text-4xl font-bold mb-6">Contact</h1>
+            <div className="prose prose-lg mb-12">
+              <p>Get in touch with me for collaborations, inquiries, or just to say hello!</p>
             </div>
-          </div>
+            
+            <div>
+              <h2 className="text-2xl font-semibold mb-6">Send me a message</h2>
+              <ContactForm />
+            </div>
+          </TextBox>
         </div>
       </Container>
     </Layout>
