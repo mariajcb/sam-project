@@ -2,4 +2,5 @@
 @import './styles/globals/variables.css';
 @import './styles/globals/animations.css';
 @import './styles/utils/gradients.css';
+@import './styles/utils/form-elements.css';
 @plugin "@tailwindcss/typography";

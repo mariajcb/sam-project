@@ -101,11 +101,11 @@ export default function ContactForm() {
 
   return (
     <div className="w-full">
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={handleSubmit} className="form-container">
+        <div className="form-grid">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-              Name *
+            <label htmlFor="name" className="form-label">
+              Name <span className="form-required">*</span>
             </label>
             <input
               type="text"
@@ -113,19 +113,17 @@ export default function ContactForm() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                errors.name ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={errors.name ? 'form-input-error-state' : 'form-input'}
               placeholder="Your name"
             />
             {errors.name && (
-              <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+              <p className="form-error-message">{errors.name}</p>
             )}
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              Email *
+            <label htmlFor="email" className="form-label">
+              Email <span className="form-required">*</span>
             </label>
             <input
               type="email"
@@ -133,20 +131,18 @@ export default function ContactForm() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                errors.email ? 'border-red-500' : 'border-gray-300'
-              }`}
+              className={errors.email ? 'form-input-error-state' : 'form-input'}
               placeholder="your.email@example.com"
             />
             {errors.email && (
-              <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+              <p className="form-error-message">{errors.email}</p>
             )}
           </div>
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-            Subject *
+          <label htmlFor="subject" className="form-label">
+            Subject <span className="form-required">*</span>
           </label>
           <input
             type="text"
@@ -154,19 +150,17 @@ export default function ContactForm() {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-              errors.subject ? 'border-red-500' : 'border-gray-300'
-            }`}
+            className={errors.subject ? 'form-input-error-state' : 'form-input'}
             placeholder="What's this about?"
           />
           {errors.subject && (
-            <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
+            <p className="form-error-message">{errors.subject}</p>
           )}
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-            Message *
+          <label htmlFor="message" className="form-label">
+            Message <span className="form-required">*</span>
           </label>
           <textarea
             id="message"
@@ -174,13 +168,11 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             rows={6}
-            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-              errors.message ? 'border-red-500' : 'border-gray-300'
-            }`}
+            className={errors.message ? 'form-textarea-error' : 'form-textarea'}
             placeholder="Tell me more..."
           />
           {errors.message && (
-            <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+            <p className="form-error-message">{errors.message}</p>
           )}
         </div>
 

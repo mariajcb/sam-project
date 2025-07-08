@@ -1,0 +1,423 @@
+/* Form Elements Styling System */
+
+/* Complete Form Input (Normal State) */
+.form-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+}
+
+.form-input:hover {
+  border-color: #9370db;
+  box-shadow: 0 10px 15px -3px rgba(147, 112, 219, 0.2);
+  transform: translateY(-0.25rem);
+}
+
+.form-input:focus {
+  border-color: #9370db;
+  box-shadow: 0 10px 15px -3px rgba(147, 112, 219, 0.3), 0 0 0 2px rgba(147, 112, 219, 0.3), 0 0 0 4px rgba(147, 112, 219, 0.2);
+}
+
+/* Complete Form Input (Error State) */
+.form-input-error-state {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ef4444;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+}
+
+.form-input-error-state:focus {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+  border-color: transparent;
+}
+
+/* Complete Form Input (Success State) */
+.form-input-success-state {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #22c55e;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+}
+
+.form-input-success-state:focus {
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+  border-color: transparent;
+}
+
+/* Textarea Specific Styles */
+.form-textarea {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+  resize: none;
+}
+
+.form-textarea:hover {
+  border-color: #9370db;
+  box-shadow: 0 10px 15px -3px rgba(147, 112, 219, 0.2);
+  transform: translateY(-0.25rem);
+}
+
+.form-textarea:focus {
+  border-color: #9370db;
+  box-shadow: 0 10px 15px -3px rgba(147, 112, 219, 0.3), 0 0 0 2px rgba(147, 112, 219, 0.3), 0 0 0 4px rgba(147, 112, 219, 0.2);
+}
+
+.form-textarea-error {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ef4444;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+  resize: none;
+}
+
+.form-textarea-error:focus {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+  border-color: transparent;
+}
+
+.form-textarea-success {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #22c55e;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+  resize: none;
+}
+
+.form-textarea-success:focus {
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+  border-color: transparent;
+}
+
+/* Select Element Styles */
+.form-select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.form-select:hover {
+  border-color: #9370db;
+  box-shadow: 0 10px 15px -3px rgba(147, 112, 219, 0.2);
+  transform: translateY(-0.25rem);
+}
+
+.form-select:focus {
+  border-color: #9370db;
+  box-shadow: 0 10px 15px -3px rgba(147, 112, 219, 0.3), 0 0 0 2px rgba(147, 112, 219, 0.3), 0 0 0 4px rgba(147, 112, 219, 0.2);
+}
+
+.form-select-error {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ef4444;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.form-select-error:focus {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+  border-color: transparent;
+}
+
+.form-select-success {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #22c55e;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.form-select-success:focus {
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+  border-color: transparent;
+}
+
+/* Checkbox and Radio Styles */
+.form-checkbox,
+.form-radio {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-out;
+  outline: none;
+  will-change: transform;
+}
+
+.form-checkbox:hover,
+.form-radio:hover {
+  border-color: #9370db;
+  box-shadow: 0 4px 6px -1px rgba(147, 112, 219, 0.2);
+  transform: scale(1.1);
+}
+
+.form-checkbox:focus,
+.form-radio:focus {
+  box-shadow: 0 0 0 2px rgba(147, 112, 219, 0.3), 0 0 0 4px rgba(147, 112, 219, 0.2);
+}
+
+.form-checkbox-error,
+.form-radio-error {
+  border-color: #ef4444;
+}
+
+.form-checkbox-error:focus,
+.form-radio-error:focus {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+}
+
+/* Label Styles */
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.form-label-error {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #b91c1c;
+  margin-bottom: 0.5rem;
+}
+
+.form-label-success {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #15803d;
+  margin-bottom: 0.5rem;
+}
+
+/* Error Message Styles */
+.form-error-message {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #dc2626;
+}
+
+/* Success Message Styles */
+.form-success-message {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #16a34a;
+}
+
+/* Form Group Styles */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group-error {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group-success {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Form Container Styles */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Responsive Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Form Field Wrapper */
+.form-field {
+  position: relative;
+}
+
+/* Required Field Indicator */
+.form-required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+/* Placeholder Styles */
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #9ca3af;
+  transition: color 0.2s ease;
+}
+
+.form-input:focus::placeholder,
+.form-textarea:focus::placeholder {
+  color: #d1d5db;
+}
+
+/* Disabled State */
+.form-input:disabled,
+.form-textarea:disabled,
+.form-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-input:disabled:hover,
+.form-textarea:disabled:hover,
+.form-select:disabled:hover {
+  border-color: #d1d5db;
+  box-shadow: none;
+  transform: none;
+}
+
+.form-input:disabled:focus,
+.form-textarea:disabled:focus,
+.form-select:disabled:focus {
+  border-color: #d1d5db;
+  box-shadow: none;
+}
+
+/* Loading State */
+.form-input-loading,
+.form-textarea-loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Custom Focus Ring Animation */
+@keyframes formFocusRing {
+  0% {
+    box-shadow: 
+      0 0 0 0 rgba(147, 112, 219, 0.3),
+      0 0 0 0 rgba(147, 112, 219, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 0 4px rgba(147, 112, 219, 0.3),
+      0 0 0 8px rgba(147, 112, 219, 0.2);
+  }
+  100% {
+    box-shadow: 
+      0 0 0 0 rgba(147, 112, 219, 0.3),
+      0 0 0 0 rgba(147, 112, 219, 0.2);
+  }
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  animation: formFocusRing 0.3s ease-out;
+}
+
+/* Enhanced Hover Glow Effect */
+@keyframes formHoverGlow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 12px rgba(147, 112, 219, 0.2),
+      0 0 0 0 rgba(147, 112, 219, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 6px 16px rgba(147, 112, 219, 0.3),
+      0 0 0 4px rgba(147, 112, 219, 0.1);
+  }
+}
+
+.form-input:hover,
+.form-textarea:hover,
+.form-select:hover {
+  animation: formHoverGlow 1.5s ease-in-out infinite;
+}
+
+/* Error State Glow */
+@keyframes formErrorGlow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 12px rgba(239, 68, 68, 0.2),
+      0 0 0 0 rgba(239, 68, 68, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 6px 16px rgba(239, 68, 68, 0.3),
+      0 0 0 4px rgba(239, 68, 68, 0.1);
+  }
+}
+
+.form-input-error-state:hover,
+.form-textarea-error:hover,
+.form-select-error:hover {
+  animation: formErrorGlow 1.5s ease-in-out infinite;
+}
+
+/* Success State Glow */
+@keyframes formSuccessGlow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 12px rgba(34, 197, 94, 0.2),
+      0 0 0 0 rgba(34, 197, 94, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 6px 16px rgba(34, 197, 94, 0.3),
+      0 0 0 4px rgba(34, 197, 94, 0.1);
+  }
+}
+
+.form-input-success-state:hover,
+.form-textarea-success:hover,
+.form-select-success:hover {
+  animation: formSuccessGlow 1.5s ease-in-out infinite;
+} 
