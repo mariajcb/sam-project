@@ -1,59 +1,86 @@
 # Contact Form Setup Guide
 
 ## Overview
-The contact form uses Vercel API routes with Resend for email delivery. It includes form validation, error handling, and a modern UI.
+The contact form uses Sanity CMS with webhooks for form submission handling. It includes form validation, error handling, and a modern UI. Form submissions are stored as Sanity documents and processed via webhooks.
 
 ## Setup Steps
 
-### 1. Install Dependencies
-The Resend package has already been installed:
-```bash
-npm install resend
-```
+### 1. Sanity Configuration
+The Sanity webhook infrastructure is already configured in your project:
+- `@sanity/webhook` package installed
+- Webhook validation utilities available
+- Sanity client configured
 
-### 2. Get Resend API Key
-1. Sign up at [resend.com](https://resend.com)
-2. Go to API Keys section
-3. Create a new API key
-4. Copy the API key (starts with `re_`)
+### 2. Create Contact Submission Schema
+A new schema for contact form submissions will be created:
+```typescript
+// schemas/contactSubmission.ts
+export default defineType({
+  name: 'contactSubmission',
+  title: 'Contact Form Submission',
+  type: 'document',
+  fields: [
+    // name, email, subject, message, status, submittedAt
+  ]
+})
+```
 
 ### 3. Configure Environment Variables
 Create a `.env.local` file in your project root:
 ```env
-RESEND_API_KEY=re_your_api_key_here
+SANITY_API_WRITE_TOKEN=your_write_token_here
+SANITY_CONTACT_WEBHOOK_SECRET=your_webhook_secret_here
 ```
 
-### 4. Update Email Configuration
-In `pages/api/contact.ts`, update these values:
-- Line 28: Replace `'noreply@yourdomain.com'` with your verified domain
-- Line 29: Replace `'your.email@example.com'` with your email address
+### 4. Set Up Sanity Webhook
+1. Go to your Sanity project dashboard
+2. Navigate to API > Webhooks
+3. Create a new webhook:
+   - URL: `https://yourdomain.com/api/contact-webhook`
+   - Dataset: Your current dataset
+   - Trigger: "Create"
+   - Filter: `_type == "contactSubmission"`
+   - Secret: Use the same value as `SANITY_CONTACT_WEBHOOK_SECRET`
 
-### 5. Verify Your Domain (Optional but Recommended)
-1. In Resend dashboard, go to Domains
-2. Add and verify your domain
-3. Use your verified domain in the "from" field
+### 5. Update Form Configuration
+The contact form will be modified to:
+- Create Sanity documents instead of calling API routes
+- Handle webhook-triggered email sending
+- Provide real-time feedback
 
 ## Features
 - ✅ Form validation (client & server-side)
-- ✅ Email sending via Resend
+- ✅ Sanity document storage
+- ✅ Webhook-triggered email processing
 - ✅ Error handling and user feedback
 - ✅ Responsive design
 - ✅ Loading states
 - ✅ Success/error messages
+- ✅ Admin interface in Sanity Studio
 
 ## Testing
 1. Start your development server: `npm run dev`
 2. Navigate to `/contact`
 3. Fill out and submit the form
-4. Check your email for the received message
+4. Check Sanity Studio for the new submission
+5. Verify webhook processing
 
 ## Deployment
-- Deploy to Vercel with the environment variable set
-- The API route will work automatically on Vercel
-- No additional configuration needed
+- Deploy to Vercel with the environment variables set
+- Configure webhook URL for production
+- The webhook handler will work automatically on Vercel
 
 ## Customization
 - Update contact information in `pages/contact.tsx`
 - Modify form fields in `components/ContactForm.tsx`
-- Customize email template in `pages/api/contact.ts`
-- Adjust styling using Tailwind classes 
+- Customize webhook processing in `pages/api/contact-webhook.ts`
+- Adjust styling using Tailwind classes
+- Manage submissions in Sanity Studio
+
+## Benefits of Sanity Webhook Approach
+- **Reliability**: Sanity guarantees webhook delivery with retries
+- **Data Integrity**: All submissions stored as structured documents
+- **Scalability**: Can handle high-volume submissions
+- **Monitoring**: Built-in webhook history and status tracking
+- **Flexibility**: Easy to add multiple notification channels
+- **Admin Interface**: View and manage submissions in Sanity Studio 
