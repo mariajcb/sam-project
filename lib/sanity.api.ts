@@ -1,3 +1,5 @@
+import { validateEnvironmentVariables } from './security'
+
 export const useCdn = false
 
 /**
@@ -17,6 +19,17 @@ export const projectId = assertValue(
 
 export const readToken = process.env.SANITY_API_READ_TOKEN || ''
 
+// Write token for creating documents (contact submissions) with security validation
+export const writeToken = assertValue(
+  process.env.SANITY_API_WRITE_TOKEN,
+  'Missing environment variable: SANITY_API_WRITE_TOKEN (required for contact form submissions)',
+)
+
+// Validate write token format for security
+if (writeToken && writeToken.length < 20) {
+  throw new Error('SANITY_API_WRITE_TOKEN appears to be invalid')
+}
+
 // see https://www.sanity.io/docs/api-versioning for how versioning works
 export const apiVersion =
   process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-02-27'
@@ -28,6 +41,17 @@ export const DRAFT_MODE_ROUTE = '/api/draft-mode/enable'
  * Used to configure edit intent links, for Presentation Mode, as well as to configure where the Studio is mounted in the router.
  */
 export const studioUrl = '/studio'
+
+/**
+ * Validate all required environment variables for security
+ * This should be called during application startup
+ */
+export function validateSanityEnvironment(): void {
+  const validation = validateEnvironmentVariables()
+  if (!validation.isValid) {
+    throw new Error(`Environment validation failed: ${validation.errors.join(', ')}`)
+  }
+}
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {

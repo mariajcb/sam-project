@@ -7,6 +7,7 @@ import category from './category'
 import home from './home'
 import about from './about'
 import videoType from './video'
+import contactSubmissionType from './contactSubmission'
 
 export const schemaTypes = [
   authorType,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   home,
   about,
   videoType,
+  contactSubmissionType,
 ] 
