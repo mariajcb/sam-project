@@ -1,11 +1,11 @@
-import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
+import Container from 'components/Container'
 import Navigation from 'components/Navigation'
 import VideoGallery from 'components/VideoGallery'
-import type { Settings, Video } from 'lib/sanity.queries'
-import { GetStaticProps } from 'next'
 import { client } from 'lib/sanity.client'
-import { videosQuery, settingsQuery } from 'lib/sanity.queries'
+import type { Settings, Video } from 'lib/sanity.queries'
+import { settingsQuery,videosQuery } from 'lib/sanity.queries'
+import { GetStaticProps } from 'next'
 
 export interface VideosPageProps {
   settings: Settings

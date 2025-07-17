@@ -1,6 +1,6 @@
-import { FC, ReactNode, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import type { Settings } from 'lib/sanity.queries'
+import { useRouter } from 'next/router'
+import { FC, ReactNode, useEffect } from 'react'
 
 interface ClientPostsRouterProps {
   children: ReactNode

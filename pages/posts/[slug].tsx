@@ -1,6 +1,6 @@
+import ClientPostsRouter from 'components/ClientPostsRouter'
 import PostPage from 'components/PostPage'
 import PreviewPostPage from 'components/PreviewPostPage'
-import ClientPostsRouter from 'components/ClientPostsRouter'
 import StructuredData from 'components/StructuredData'
 import { readToken } from 'lib/sanity.api'
 import {

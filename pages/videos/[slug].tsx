@@ -1,12 +1,12 @@
-import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
+import Container from 'components/Container'
 import Navigation from 'components/Navigation'
 import VideoPlayer from 'components/VideoPlayer'
-import type { Settings, Video } from 'lib/sanity.queries'
-import { GetStaticProps, GetStaticPaths } from 'next'
-import { useRouter } from 'next/router'
 import { client } from 'lib/sanity.client'
-import { videoBySlugQuery, videoSlugsQuery, settingsQuery } from 'lib/sanity.queries'
+import type { Settings, Video } from 'lib/sanity.queries'
+import { settingsQuery,videoBySlugQuery, videoSlugsQuery } from 'lib/sanity.queries'
+import { GetStaticPaths,GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
 
 interface VideoPageProps {
   video: Video

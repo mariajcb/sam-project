@@ -1,8 +1,9 @@
+import { PortableText } from '@portabletext/react'
+import TextBox from 'components/TextBox'
 import { urlForImage } from 'lib/sanity.image'
 import type { Settings } from 'lib/sanity.queries'
 import Image from 'next/image'
-import { PortableText } from '@portabletext/react'
-import TextBox from 'components/TextBox'
+
 import styles from '../styles/components/AboutPage.module.css'
 
 export interface AboutPageProps {

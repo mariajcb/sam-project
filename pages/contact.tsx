@@ -1,12 +1,12 @@
-import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
-import Navigation from 'components/Navigation'
 import ContactForm from 'components/ContactForm'
+import Container from 'components/Container'
+import Navigation from 'components/Navigation'
 import TextBox from 'components/TextBox'
-import type { Settings } from 'lib/sanity.queries'
-import { GetStaticProps } from 'next'
 import { client } from 'lib/sanity.client'
+import type { Settings } from 'lib/sanity.queries'
 import { settingsQuery } from 'lib/sanity.queries'
+import { GetStaticProps } from 'next'
 
 export interface ContactPageProps {
   settings: Settings

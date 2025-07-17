@@ -1,7 +1,8 @@
 import React from 'react';
+
+import Background from '../components/Background';
 import ButtonDemo from '../components/ButtonDemo';
 import Container from '../components/Container';
-import Background from '../components/Background';
 
 export default function ButtonDemoPage() {
   return (

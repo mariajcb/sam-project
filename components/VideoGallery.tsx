@@ -1,4 +1,5 @@
 import type { Video } from 'lib/sanity.queries'
+
 import VideoCard from './VideoCard'
 
 interface VideoGalleryProps {

@@ -4,8 +4,8 @@ import {
   projectId,
   studioUrl,
   useCdn,
-  writeToken,
   validateSanityEnvironment,
+  writeToken,
 } from 'lib/sanity.api'
 import {
   indexQuery,
@@ -17,6 +17,7 @@ import {
   settingsQuery,
 } from 'lib/sanity.queries'
 import { createClient, type SanityClient } from 'next-sanity'
+
 import { handleSecurityError } from './security'
 
 export const client = createClient({

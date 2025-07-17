@@ -1,8 +1,9 @@
+import type { NavigationItem, Settings } from 'lib/sanity.queries'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { PortableText } from 'next-sanity'
+
 import styles from '../styles/components/Navigation.module.css'
-import type { NavigationItem, Settings } from 'lib/sanity.queries'
 
 interface NavigationProps {
   items?: NavigationItem[]

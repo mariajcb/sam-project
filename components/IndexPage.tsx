@@ -1,7 +1,7 @@
-import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
-import Navigation from 'components/Navigation'
+import Container from 'components/Container'
 import IndexPageHead from 'components/IndexPageHead'
+import Navigation from 'components/Navigation'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 

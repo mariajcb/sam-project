@@ -1,12 +1,12 @@
-import Container from 'components/Container'
 import Layout from 'components/BlogLayout'
+import Container from 'components/Container'
 import Navigation from 'components/Navigation'
 import TextBox from 'components/TextBox'
+import { getClient } from 'lib/sanity.client'
 import { urlForImage } from 'lib/sanity.image'
 import type { Settings } from 'lib/sanity.queries'
-import { getClient } from 'lib/sanity.client'
-import { groq } from 'next-sanity'
 import Image from 'next/image'
+import { groq } from 'next-sanity'
 
 interface HomePageProps {
   settings: Settings

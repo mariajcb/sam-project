@@ -1,10 +1,10 @@
-import Container from 'components/Container'
-import Layout from 'components/BlogLayout'
-import Navigation from 'components/Navigation'
-import type { Settings } from 'lib/sanity.queries'
-import { getClient } from 'lib/sanity.client'
-import { groq } from 'next-sanity'
 import AboutPage from 'components/AboutPage'
+import Layout from 'components/BlogLayout'
+import Container from 'components/Container'
+import Navigation from 'components/Navigation'
+import { getClient } from 'lib/sanity.client'
+import type { Settings } from 'lib/sanity.queries'
+import { groq } from 'next-sanity'
 
 export interface PageProps {
   settings: Settings
