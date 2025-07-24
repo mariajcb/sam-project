@@ -20,14 +20,19 @@ export const projectId = assertValue(
 export const readToken = process.env.SANITY_API_READ_TOKEN || ''
 
 // Write token for creating documents (contact submissions) with security validation
-export const writeToken = assertValue(
-  process.env.SANITY_API_WRITE_TOKEN,
-  'Missing environment variable: SANITY_API_WRITE_TOKEN (required for contact form submissions)',
-)
-
-// Validate write token format for security
-if (writeToken && writeToken.length < 20) {
-  throw new Error('SANITY_API_WRITE_TOKEN appears to be invalid')
+// This is a function to avoid evaluation during build time
+export function getWriteToken(): string {
+  const token = process.env.SANITY_API_WRITE_TOKEN
+  if (!token) {
+    throw new Error('Missing environment variable: SANITY_API_WRITE_TOKEN (required for contact form submissions)')
+  }
+  
+  // Validate write token format for security
+  if (token.length < 20) {
+    throw new Error('SANITY_API_WRITE_TOKEN appears to be invalid (too short)')
+  }
+  
+  return token
 }
 
 // see https://www.sanity.io/docs/api-versioning for how versioning works

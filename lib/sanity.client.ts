@@ -5,7 +5,7 @@ import {
   studioUrl,
   useCdn,
   validateSanityEnvironment,
-  writeToken,
+  getWriteToken,
 } from 'lib/sanity.api'
 import {
   indexQuery,
@@ -49,14 +49,8 @@ export function getWriteClient(): SanityClient {
     // Validate environment variables
     validateSanityEnvironment()
     
-    // Validate write token
-    if (!writeToken) {
-      throw new Error('SANITY_API_WRITE_TOKEN is required for write operations')
-    }
-    
-    if (writeToken.length < 20) {
-      throw new Error('SANITY_API_WRITE_TOKEN appears to be invalid (too short)')
-    }
+    // Get and validate write token
+    const writeToken = getWriteToken()
     
     // Create secure client with write permissions
     const client = createClient({
