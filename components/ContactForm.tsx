@@ -1,13 +1,6 @@
 import { useEffect, useRef,useState } from 'react'
 
-import { createSecureDocument } from '../lib/sanity.client'
 import { sanitizeInput, SECURITY_CONFIG } from '../lib/security'
-import { generateSubmissionHash } from '../lib/security'
-import {
-  calculateSpamScore,
-  isSpam,
-  validateContactSubmission,
-} from '../lib/validation'
 import Button from './Button'
 
 interface FormData {
@@ -183,40 +176,24 @@ export default function ContactForm() {
           formData.message,
           SECURITY_CONFIG.MAX_MESSAGE_LENGTH,
         ),
-        submittedAt: new Date().toISOString(),
-        status: 'new',
         honeypot: formData.honeypot,
         csrfToken: formData.csrfToken,
-        // Add security metadata
-        submissionHash: generateSubmissionHash(
-          {
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-          },
-          'client',
-        ),
-        spamScore: calculateSpamScore({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        }),
-        securityFlags: [],
       }
 
-      // Check for spam
-      if (isSpam(submissionData)) {
-        submissionData.status = 'spam'
-        submissionData.securityFlags.push('suspicious_content')
-      }
+      // Submit to the API route
+      const response = await fetch('/api/submit-contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      })
 
-      // Create the contact submission document in Sanity
-      const result = await createSecureDocument(
-        submissionData,
-        'contactSubmission',
-      )
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to submit form')
+      }
 
       setSubmitStatus('success')
       setSubmitMessage(

@@ -229,6 +229,8 @@ export function validateEnvironmentVariables(): { isValid: boolean; errors: stri
     'NEXT_PUBLIC_SANITY_DATASET'
   ]
   
+
+  
   requiredVars.forEach(varName => {
     if (!process.env[varName]) {
       errors.push(`Missing required environment variable: ${varName}`)

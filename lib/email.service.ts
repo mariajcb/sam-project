@@ -30,7 +30,7 @@ export interface EmailConfig {
 
 // Default email configuration
 export const DEFAULT_EMAIL_CONFIG: EmailConfig = {
-  fromEmail: process.env.CONTACT_FROM_EMAIL || 'noreply@yourdomain.com',
+  fromEmail: process.env.CONTACT_FROM_EMAIL || 'onboarding@resend.dev',
   toEmail: process.env.CONTACT_TO_EMAIL || 'contact@yourdomain.com',
   subjectPrefix: '[Contact Form]',
   rateLimitPerHour: 100,
@@ -193,9 +193,13 @@ Received: ${new Date().toISOString()}
   `.trim()
 }
 
+import { Resend } from 'resend'
+
+// Initialize Resend client
+const resend = new Resend(process.env.RESEND_API_KEY_SAM)
+
 /**
- * Send email notification (placeholder implementation)
- * Replace this with your preferred email service (SendGrid, AWS SES, etc.)
+ * Send email notification using Resend
  */
 export async function sendEmailNotification(
   data: EmailData,
@@ -234,34 +238,34 @@ export async function sendEmailNotification(
     const htmlContent = generateEmailHTML(emailData)
     const textContent = generateEmailText(emailData)
 
-    // TODO: Replace with actual email service implementation
-    // Example with SendGrid:
-    // const sgMail = require('@sendgrid/mail')
-    // sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-    // const msg = {
-    //   to: emailData.to,
-    //   from: emailData.from,
-    //   subject: emailData.subject,
-    //   text: textContent,
-    //   html: htmlContent,
-    // }
-    // await sgMail.send(msg)
+    // Send email via Resend SDK
 
-    // For now, just log the email (replace with actual implementation)
-    console.log('[Email Service] Would send email:', {
+    const { data: result, error } = await resend.emails.send({
+      from: emailData.from,
+      to: [emailData.to],
+      subject: emailData.subject,
+      html: htmlContent,
+      text: textContent,
+    })
+
+    if (error) {
+      console.error('[Email Service] Resend error:', error)
+      return {
+        success: false,
+        error: error.message || 'Failed to send email via Resend',
+      }
+    }
+
+    console.log('[Email Service] Email sent successfully via Resend:', {
       to: emailData.to,
       subject: emailData.subject,
       submissionId: emailData.submissionId,
-      htmlLength: htmlContent.length,
-      textLength: textContent.length,
+      messageId: result?.id,
     })
-
-    // Simulate email sending
-    await new Promise((resolve) => setTimeout(resolve, 100))
 
     return {
       success: true,
-      messageId: `email_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      messageId: result?.id || `email_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
     }
   } catch (error) {
     console.error('[Email Service] Failed to send email:', error)
@@ -279,6 +283,7 @@ export async function sendContactFormNotification(
   submission: any,
   config: EmailConfig = DEFAULT_EMAIL_CONFIG,
 ): Promise<EmailResult> {
+
   const emailData: EmailData = {
     to: config.toEmail,
     from: config.fromEmail,
@@ -288,6 +293,8 @@ export async function sendContactFormNotification(
     email: submission.email || 'no-email@example.com',
     submissionId: submission._id || 'unknown',
   }
+
+
 
   return sendEmailNotification(emailData, config)
 }

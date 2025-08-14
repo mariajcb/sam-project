@@ -27,9 +27,8 @@ export function getWriteToken(): string {
     throw new Error('Missing environment variable: SANITY_API_WRITE_TOKEN (required for contact form submissions)')
   }
   
-  // Validate write token format for security
   if (token.length < 20) {
-    throw new Error('SANITY_API_WRITE_TOKEN appears to be invalid (too short)')
+    throw new Error('Write token invalid')
   }
   
   return token
@@ -52,8 +51,14 @@ export const studioUrl = '/studio'
  * This should be called during application startup
  */
 export function validateSanityEnvironment(): void {
+  // Only validate on the server side
+  if (typeof window !== 'undefined') {
+    return
+  }
+  
   const validation = validateEnvironmentVariables()
   if (!validation.isValid) {
+    console.error('Environment validation failed:', validation.errors)
     throw new Error(`Environment validation failed: ${validation.errors.join(', ')}`)
   }
 }

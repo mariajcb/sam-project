@@ -46,8 +46,10 @@ export function getClient(preview?: { token: string }): SanityClient {
  */
 export function getWriteClient(): SanityClient {
   try {
-    // Validate environment variables
-    validateSanityEnvironment()
+    // Only validate on server side
+    if (typeof window === 'undefined') {
+      validateSanityEnvironment()
+    }
     
     // Get and validate write token
     const writeToken = getWriteToken()
@@ -64,8 +66,14 @@ export function getWriteClient(): SanityClient {
     
     return client
   } catch (error) {
-    const securityError = handleSecurityError(error, 'getWriteClient')
     console.error('Failed to create write client:', error)
+    
+    // Provide more helpful error messages for environment issues
+    if (error.message?.includes('Missing required environment variable')) {
+      throw new Error('Environment configuration error. Please check your .env.local file and restart the development server.')
+    }
+    
+    const securityError = handleSecurityError(error, 'getWriteClient')
     throw new Error(securityError.message)
   }
 }
@@ -104,7 +112,6 @@ export async function createSecureDocument(document: any, documentType: string):
     return result
   } catch (error) {
     const securityError = handleSecurityError(error, 'createSecureDocument')
-    console.error(`Failed to create ${documentType} document:`, error)
     throw new Error(securityError.message)
   }
 }
