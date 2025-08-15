@@ -1,4 +1,21 @@
-/* Gradient Animation */
+/**
+ * Gradient Animation System
+ * 
+ * This file contains all gradient animation keyframes and utility classes
+ * for creating smooth, animated gradient backgrounds throughout the application.
+ * 
+ * USAGE:
+ * - Use .animate-gradient for fast 3s animations (good for interactive elements)
+ * - Use .animate-gradient-slow for slow 45s animations (good for background elements)
+ * - Always set background-size: 200% 200% for proper gradient shifting
+ * 
+ * BEST PRACTICES:
+ * - Combine with CSS variables from variables.css for consistent colors
+ * - Use fallback backgrounds for graceful degradation
+ * - Test animation performance on lower-end devices
+ */
+
+/* Fast Gradient Animation - 3 seconds */
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -11,7 +28,7 @@
   }
 }
 
-/* Gradient Shift Animation */
+/* Slow Gradient Shift Animation - 45 seconds */
 @keyframes gradient-shift {
   0% {
     background-position: 0% 50%;
@@ -24,12 +41,15 @@
   }
 }
 
-/* Animation Classes */
+/* Animation Utility Classes */
+
+/* Fast gradient animation for interactive elements */
 .animate-gradient {
   animation: gradientAnimation 3s ease infinite;
   background-size: 200% 200%;
 }
 
+/* Slow gradient animation for background elements */
 .animate-gradient-slow {
   animation: gradient-shift 45s ease infinite;
   background-size: 200% 200%;
