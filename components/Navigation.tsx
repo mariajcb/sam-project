@@ -26,7 +26,7 @@ export default function Navigation({
   return (
     <div className={styles.navigationContainer}>
       <div className={styles.titleSection}>
-        <Link href="/" className={styles.titleLink}>
+        <Link href="/" className={`${styles.titleLink} title-link-interactive`}>
           <h1 className={styles.title}>{title}</h1>
           <div className={styles.description}>
             <PortableText value={description} />
@@ -39,8 +39,8 @@ export default function Navigation({
             <li key={item._key} className={styles.navItem}>
               <Link
                 href={item.link}
-                className={`${styles.navLink} ${
-                  router.pathname === item.link ? styles.active : ''
+                className={`${styles.navLink} nav-link-interactive ${
+                  router.pathname === item.link ? `${styles.active} nav-link-active` : ''
                 }`}
                 title={item.description}
               >

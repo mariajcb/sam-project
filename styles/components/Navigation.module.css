@@ -36,8 +36,14 @@
 }
 
 .description a {
-  color: #0066cc;
+  color: var(--text-link);
   text-decoration: underline;
+  transition: all 0.2s ease-out;
+}
+
+.description a:hover {
+  color: var(--theme-purple);
+  text-decoration: none;
 }
 
 .nav {
@@ -62,37 +68,13 @@
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
-  transition: color 0.2s ease;
   position: relative;
-}
-
-.navLink:hover {
-  color: #000000;
-}
-
-.navLink.active {
-  color: #000000;
-  font-weight: 600;
-}
-
-.navLink.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #000000;
 }
 
 .titleLink {
   text-decoration: none;
   color: inherit;
   display: block;
-}
-
-.titleLink:hover {
-  opacity: 0.8;
 }
 
 /* Responsive styles */
