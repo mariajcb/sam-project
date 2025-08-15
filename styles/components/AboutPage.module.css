@@ -11,35 +11,16 @@
 }
 
 .container {
-  max-width: 72rem;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-@media (min-width: 640px) {
-  .container {
-    padding: 0 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding: 0 2rem;
-  }
+  padding: 2rem 0;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: start;
-  margin-top: 2rem;
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .imageContainer {
@@ -47,7 +28,40 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 105, 180, 0.1), rgba(147, 112, 219, 0.1));
+  border-radius: 16px;
+}
+
+.contentSection {
+  flex: 1;
+  padding: 2rem;
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .contentWrapper {
@@ -61,7 +75,6 @@
   inset: 0;
   border: 5px solid white;
   border-radius: 0.5rem;
-  z-index: 1;
 }
 
 .innerBorder {
@@ -69,7 +82,6 @@
   inset: 5px;
   border: 2px solid black;
   border-radius: 0.5rem;
-  z-index: 2;
   transition: all 0.3s ease;
 }
 
@@ -91,24 +103,52 @@
   padding: 2rem;
   border-radius: 0.5rem;
   position: relative;
-  z-index: 0;
 }
 
 .title {
   font-size: 2.25rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .prose {
   font-size: 1.125rem;
   line-height: 1.75;
+  color: var(--text-secondary);
 }
 
 .paragraph {
   margin-bottom: 1.5rem;
+  color: var(--text-secondary);
 }
 
 .paragraph:last-child {
   margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .imageContainer {
+    height: 300px;
+  }
+  
+  .contentSection {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+  }
 } 

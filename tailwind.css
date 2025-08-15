@@ -3,4 +3,5 @@
 @import './styles/globals/animations.css';
 @import './styles/utils/gradients.css';
 @import './styles/utils/form-elements.css';
+@import './styles/utils/interactive-elements.css';
 @plugin "@tailwindcss/typography";

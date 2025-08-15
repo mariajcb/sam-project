@@ -2,13 +2,14 @@ import React from 'react';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'gradient' | 'gradient-outline' | 'gradient-text' | 'glass';
+  variant?: 'primary' | 'secondary' | 'outline' | 'gradient' | 'gradient-outline' | 'gradient-text';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   loading?: boolean;
+  margin?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,9 +20,10 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   type = 'button',
   disabled = false,
-  loading = false
+  loading = false,
+  margin = ''
 }) => {
-  const baseClasses = "relative inline-flex items-center justify-center font-medium transition-all duration-200 ease-out focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseClasses = "my-2 relative inline-flex items-center justify-center font-medium transition-all duration-200 ease-out focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed hover:transform hover:-translate-y-1 focus:transform focus:-translate-y-0.5";
   
   const sizeClasses = {
     sm: "px-3 py-1.5 text-sm rounded-md",
@@ -31,13 +33,12 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const variants = {
-    primary: "bg-theme-purple hover:bg-theme-purple-dark text-white shadow-lg hover:shadow-xl",
-    secondary: "bg-theme-pink-accessible hover:bg-theme-pink-dark text-white shadow-lg hover:shadow-xl",
-    outline: "border-2 border-theme-purple text-theme-purple hover:bg-theme-purple hover:text-white",
-    gradient: "gradient-button text-white shadow-lg hover:shadow-xl",
-    'gradient-outline': "gradient-button-outline text-theme-purple hover:text-white",
-    'gradient-text': "gradient-button-text bg-transparent text-gray-800",
-    glass: "glass-button text-white shadow-lg hover:shadow-xl"
+    primary: "bg-theme-purple hover:bg-theme-purple-dark text-white shadow-lg hover:shadow-xl focus:shadow-2xl focus:ring-2 focus:ring-theme-purple focus:ring-opacity-50",
+    secondary: "bg-theme-pink hover:bg-theme-pink-dark text-white shadow-lg hover:shadow-xl focus:shadow-2xl focus:ring-2 focus:ring-theme-pink focus:ring-opacity-50",
+    outline: "border-2 border-theme-purple text-theme-purple hover:bg-theme-purple hover:text-white shadow-md hover:shadow-lg focus:shadow-xl focus:ring-2 focus:ring-theme-purple focus:ring-opacity-50",
+    gradient: "gradient-button text-white shadow-lg hover:shadow-xl focus:shadow-2xl focus:ring-2 focus:ring-theme-purple focus:ring-opacity-50",
+    'gradient-outline': "gradient-button-outline text-theme-purple hover:text-white shadow-md hover:shadow-lg focus:shadow-xl focus:ring-2 focus:ring-theme-purple focus:ring-opacity-50",
+    'gradient-text': "gradient-button-text bg-transparent text-gray-800 hover:text-theme-purple shadow-sm hover:shadow-md focus:shadow-lg focus:ring-2 focus:ring-theme-purple focus:ring-opacity-50",
   };
 
   return (
@@ -45,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
-      className={`${baseClasses} ${sizeClasses[size]} ${variants[variant]} ${className}`}
+      className={`${baseClasses} ${sizeClasses[size]} ${variants[variant]} ${className} ${margin}`}
     >
       {loading && (
         <svg 

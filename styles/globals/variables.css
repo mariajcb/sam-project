@@ -1,51 +1,89 @@
+/**
+ * Design System Variables
+ * 
+ * This file contains all CSS custom properties (variables) used throughout
+ * the application for consistent theming, spacing, typography, and colors.
+ * 
+ * ORGANIZATION:
+ * - Base Colors: Primary theme colors
+ * - Text Colors: AA-compliant text color system
+ * - Status Colors: Error, success, and warning states
+ * - Color Variations: Light and dark variants of theme colors
+ * - Gradients: Predefined gradient combinations
+ * - Spacing: Consistent spacing scale
+ * - Border Radius: Standardized corner radius values
+ * - Transitions: Animation timing functions
+ * - Layout: Container and layout constraints
+ * - Typography: Font sizes and weights
+ * 
+ * USAGE:
+ * - Always use these variables instead of hardcoded values
+ * - Text colors are AA-compliant for accessibility
+ * - Gradients work with animation system in animations.css
+ * 
+ * ACCESSIBILITY:
+ * - All text colors meet WCAG AA contrast requirements
+ * - Color combinations tested for colorblind accessibility
+ */
+
 :root {
-  /* Base Colors */
+  /* Base Theme Colors */
   --color-success: #0070f3;
-  --theme-pink: #ff69b4;
-  --theme-purple: #9370db;
+  --theme-pink: #ff69b4;              /* Primary pink color */
+  --theme-purple: #9370db;            /* Primary purple color */
   
-  /* Color Variations */
-  --theme-pink-light: rgba(255, 105, 180, 0.5);
-  --theme-purple-light: rgba(147, 112, 219, 0.5);
-  --theme-pink-dark: #cc4f8f;
-  --theme-purple-dark: #6b4fa3;
-  --theme-pink-accessible: #b91c5c;
+  /* Standardized Text Colors - AA Compliant */
+  --text-primary: #1a1a1a;           /* Main headings and important text */
+  --text-secondary: #2d2d2d;         /* Body text and secondary content */
+  --text-muted: #6b7280;             /* Muted text, placeholders */
+  --text-link: #0066cc;              /* Link color */
+
+  /* Status Colors - AA Compliant */
+  --text-error: #991b1b;             /* Error messages */
+  --text-success: #166534;           /* Success messages */
   
-  /* Gradient Definitions */
+  /* Color Variations - Light and Dark Variants */
+  --theme-pink-light: rgba(255, 105, 180, 0.5);    /* Light pink for subtle effects */
+  --theme-purple-light: rgba(147, 112, 219, 0.5);  /* Light purple for subtle effects */
+  --theme-pink-dark: #cc4f8f;                      /* Dark pink for hover states */
+  --theme-purple-dark: #6b4fa3;                    /* Dark purple for hover states */
+  
+  /* Gradient Definitions - For Background and Interactive Elements */
   --gradient-primary: linear-gradient(45deg, var(--theme-pink-light), var(--theme-purple-light));
+  --gradient-background: linear-gradient(45deg, rgba(255, 105, 180, 0.8), rgba(147, 112, 219, 0.8));
   --gradient-hover: linear-gradient(45deg, var(--theme-pink-dark), var(--theme-purple-dark));
 
-  /* Spacing Scale */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
+  /* Spacing Scale - Consistent spacing throughout the application */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
 
-  /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
+  /* Border Radius - Standardized corner radius values */
+  --radius-sm: 0.25rem;    /* 4px - Small elements */
+  --radius-md: 0.5rem;     /* 8px - Medium elements */
+  --radius-lg: 1rem;       /* 16px - Large elements, cards */
 
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  /* Transitions - Consistent animation timing */
+  --transition-fast: 0.2s ease;    /* Quick interactions */
+  --transition-normal: 0.3s ease;  /* Standard interactions */
+  --transition-slow: 0.5s ease;    /* Complex animations */
 
-  /* Container */
-  --container-max-width: 72rem;
-  --container-padding: var(--spacing-md);
+  /* Layout Constraints */
+  --container-max-width: 72rem;     /* Maximum content width */
+  --container-padding: var(--spacing-md);  /* Container padding */
 
-  /* Typography */
-  --font-size-sm: 1rem;
-  --font-size-base: 1.1rem;
-  --font-size-lg: 1.8rem;
-  --font-size-xl: 2.25rem;
+  /* Typography Scale - Responsive font sizes */
+  --font-size-sm: 1rem;     /* 16px - Small text */
+  --font-size-base: 1.1rem; /* 17.6px - Body text */
+  --font-size-lg: 1.8rem;   /* 28.8px - Large headings */
+  --font-size-xl: 2.25rem;  /* 36px - Extra large headings */
   
-  /* Font Weights */
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  /* Font Weights - Standardized font weight scale */
+  --font-weight-normal: 400;   /* Regular text */
+  --font-weight-medium: 500;   /* Medium emphasis */
+  --font-weight-semibold: 600; /* Semi-bold headings */
+  --font-weight-bold: 700;     /* Bold headings */
 } 

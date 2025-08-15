@@ -1,6 +1,7 @@
 import Layout from 'components/BlogLayout'
 import Container from 'components/Container'
 import Navigation from 'components/Navigation'
+import TextBox from 'components/TextBox'
 import VideoGallery from 'components/VideoGallery'
 import { client } from 'lib/sanity.client'
 import type { Settings, Video } from 'lib/sanity.queries'
@@ -17,12 +18,14 @@ export default function VideosPage({ settings, videos }: VideosPageProps) {
     <Layout preview={false}>
       <Container padding="small">
         <Navigation items={settings?.navigation} settings={settings} />
-        <div className="max-w-7xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-6">Videos</h1>
-          <div className="prose prose-lg mb-8">
-            <p>Check out my latest work and projects in this video collection.</p>
-          </div>
-          <VideoGallery videos={videos} />
+        <div className="max-w-7xl mx-auto mt-12 px-4 sm:px-6 lg:px-8">
+          <TextBox>
+            <h1 className="text-4xl font-bold mb-6">Videos</h1>
+            <div className="prose prose-lg mb-8">
+              <p>Check out my latest work and projects in this video collection.</p>
+            </div>
+            <VideoGallery videos={videos} />
+          </TextBox>
         </div>
       </Container>
     </Layout>

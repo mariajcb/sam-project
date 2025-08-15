@@ -1,0 +1,195 @@
+/**
+ * Interactive Elements Styling System
+ * 
+ * Standardized hover and focus effects for interactive elements across the application.
+ * These styles ensure consistent user experience and accessibility compliance.
+ * 
+ * USAGE:
+ * - Apply these classes to any interactive element (buttons, links, form inputs)
+ * - Hover states provide subtle visual feedback
+ * - Focus states include additional accessibility indicators
+ * - All colors meet WCAG AA contrast requirements
+ * 
+ * ACCESSIBILITY:
+ * - Focus states are clearly visible for keyboard navigation
+ * - All color combinations meet AA contrast standards
+ * - Consistent interaction patterns across the application
+ */
+
+/* Navigation Link Interactive Styles */
+.nav-link-interactive {
+  transition: all 0.2s ease-out;
+  will-change: transform;
+  outline: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+}
+
+.nav-link-interactive:hover {
+  transform: translateY(-0.25rem);
+  border-color: var(--theme-pink);
+  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.4), 0 0 0 1px rgba(255, 105, 180, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+.nav-link-interactive:focus {
+  transform: translateY(-0.25rem);
+  border-color: var(--theme-pink);
+  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.5), 0 0 0 2px rgba(255, 105, 180, 0.4), 0 0 0 4px rgba(255, 105, 180, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+/* Site Title Link Interactive Styles */
+.site-title-link-interactive {
+  transition: all 0.2s ease-out;
+  will-change: transform;
+  outline: none;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+}
+
+.site-title-link-interactive:hover {
+  transform: translateY(-0.25rem);
+  border-color: var(--theme-pink);
+  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.4), 0 0 0 1px rgba(255, 105, 180, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.site-title-link-interactive:focus {
+  transform: translateY(-0.25rem);
+  border-color: var(--theme-pink);
+  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.5), 0 0 0 2px rgba(255, 105, 180, 0.4), 0 0 0 4px rgba(255, 105, 180, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Card Interactive Styles (for glass effect cards) */
+.card-interactive {
+  transition: all 0.2s ease-out;
+  will-change: transform;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.card-interactive:hover {
+  transform: translateY(-0.25rem);
+  border-color: var(--theme-pink);
+  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.4), 0 0 0 1px rgba(255, 105, 180, 0.3), 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.card-interactive:focus-within {
+  border-color: var(--theme-pink);
+  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.5), 0 0 0 2px rgba(255, 105, 180, 0.4), 0 0 0 4px rgba(255, 105, 180, 0.2), 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* General Button Interactive Styles */
+.general-button-interactive {
+  transition: all 0.2s ease-out;
+  will-change: transform;
+  outline: none;
+}
+
+.general-button-interactive:hover {
+  transform: translateY(-0.25rem);
+}
+
+.general-button-interactive:focus {
+  transform: translateY(-0.125rem);
+}
+
+/* Mobile Menu Toggle Button Interactive Styles */
+.mobile-menu-toggle-interactive {
+  transition: all 0.2s ease-out;
+  will-change: transform;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.mobile-menu-toggle-interactive:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.mobile-menu-toggle-interactive:focus {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.3), 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+/* Disabled State */
+.nav-link-interactive:disabled,
+.site-title-link-interactive:disabled,
+.general-button-interactive:disabled,
+.mobile-menu-toggle-interactive:disabled,
+.card-interactive:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* Active Navigation Link State */
+.nav-link-active {
+  border: 2px solid var(--theme-purple) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 25px rgba(147, 112, 219, 0.4), 0 0 0 1px rgba(147, 112, 219, 0.3) !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  position: relative;
+  transform: translateY(-0.125rem);
+}
+
+.nav-link-active:focus {
+  border: 2px solid var(--theme-purple) !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 10px 25px -3px rgba(147, 112, 219, 0.6), 0 0 0 2px rgba(147, 112, 219, 0.5), 0 0 0 4px rgba(147, 112, 219, 0.3) !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  position: relative;
+  transform: translateY(-0.25rem);
+}
+
+.nav-link-active::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--theme-purple), var(--theme-pink));
+  border-radius: 0.875rem;
+  opacity: 0.3;
+}
+
+/* Responsive Considerations */
+@media (prefers-reduced-motion: reduce) {
+  .nav-link-interactive,
+  .site-title-link-interactive,
+  .general-button-interactive,
+  .mobile-menu-toggle-interactive,
+  .card-interactive {
+    transition: none;
+  }
+  
+  .nav-link-interactive:hover,
+  .nav-link-interactive:focus,
+  .site-title-link-interactive:hover,
+  .site-title-link-interactive:focus,
+  .general-button-interactive:hover,
+  .general-button-interactive:focus,
+  .mobile-menu-toggle-interactive:hover,
+  .mobile-menu-toggle-interactive:focus,
+  .card-interactive:hover,
+  .card-interactive:focus-within {
+    transform: none;
+  }
+}
