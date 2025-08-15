@@ -3,7 +3,7 @@ import React from 'react';
 const Background: React.FC = () => {
   return (
     <div 
-      className="fixed inset-0 animate-gradient-shift"
+      className="fixed inset-0 animate-gradient-slow"
       style={{
         background: 'var(--gradient-primary)',
         backgroundSize: '200% 200%'
