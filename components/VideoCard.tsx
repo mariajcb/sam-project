@@ -12,8 +12,12 @@ export default function VideoCard({ video, priority }: VideoCardProps) {
   const { title, coverImage, slug, description } = video
 
   return (
-    <div className="group relative overflow-hidden rounded-lg bg-white shadow-md transition-all hover:shadow-lg">
-      <Link href={`/videos/${slug}`} className="block">
+    <div className="group relative overflow-hidden rounded-lg card-interactive">
+      <Link 
+        href={`/videos/${slug}`} 
+        className="block focus:outline-none"
+        tabIndex={0}
+      >
         <div className="relative aspect-video bg-gray-100">
           {coverImage && (
             <Image
