@@ -15,7 +15,7 @@ export default function BlogLayout({
       <Background />
       <div className="relative min-h-screen">
         <AlertBanner preview={preview} loading={loading} />
-        <main className="relative z-10">{children}</main>
+        <main className="relative">{children}</main>
       </div>
     </>
   )

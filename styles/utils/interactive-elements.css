@@ -16,51 +16,7 @@
  * - Consistent interaction patterns across the application
  */
 
-/* Standard Interactive Element Base Styles */
-.interactive-element {
-  transition: all 0.2s ease-out;
-  will-change: transform;
-  outline: none;
-}
-
-/* Hover State - Subtle visual feedback */
-.interactive-element:hover {
-  transform: translateY(-0.25rem);
-  border-color: var(--theme-pink);
-  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.4), 0 0 0 1px rgba(255, 105, 180, 0.3);
-}
-
-/* Focus State - Enhanced accessibility with focus ring */
-.interactive-element:focus {
-  transform: translateY(-0.25rem);
-  border-color: var(--theme-pink);
-  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.5), 0 0 0 2px rgba(255, 105, 180, 0.4), 0 0 0 4px rgba(255, 105, 180, 0.2);
-}
-
-/* Glass Effect Interactive Elements */
-.interactive-element-glass {
-  transition: all 0.2s ease-out;
-  will-change: transform;
-  outline: none;
-  backdrop-filter: blur(4px);
-  border: 1px solid transparent;
-}
-
-.interactive-element-glass:hover {
-  transform: translateY(-0.25rem);
-  border-color: var(--theme-pink);
-  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.4), 0 0 0 1px rgba(255, 105, 180, 0.3);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.interactive-element-glass:focus {
-  transform: translateY(-0.25rem);
-  border-color: var(--theme-pink);
-  box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.5), 0 0 0 2px rgba(255, 105, 180, 0.4), 0 0 0 4px rgba(255, 105, 180, 0.2);
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Navigation Link Specific Styles */
+/* Navigation Link Interactive Styles */
 .nav-link-interactive {
   transition: all 0.2s ease-out;
   will-change: transform;
@@ -84,8 +40,8 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Title Link Specific Styles */
-.title-link-interactive {
+/* Site Title Link Interactive Styles */
+.site-title-link-interactive {
   transition: all 0.2s ease-out;
   will-change: transform;
   outline: none;
@@ -94,41 +50,61 @@
   border: 1px solid transparent;
 }
 
-.title-link-interactive:hover {
+.site-title-link-interactive:hover {
   transform: translateY(-0.25rem);
   border-color: var(--theme-pink);
   box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.4), 0 0 0 1px rgba(255, 105, 180, 0.3);
   background: rgba(255, 255, 255, 0.1);
 }
 
-.title-link-interactive:focus {
+.site-title-link-interactive:focus {
   transform: translateY(-0.25rem);
   border-color: var(--theme-pink);
   box-shadow: 0 10px 25px -3px rgba(255, 105, 180, 0.5), 0 0 0 2px rgba(255, 105, 180, 0.4), 0 0 0 4px rgba(255, 105, 180, 0.2);
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* Button Interactive Styles */
-.button-interactive {
+/* General Button Interactive Styles */
+.general-button-interactive {
   transition: all 0.2s ease-out;
   will-change: transform;
   outline: none;
 }
 
-.button-interactive:hover {
+.general-button-interactive:hover {
   transform: translateY(-0.25rem);
 }
 
-.button-interactive:focus {
+.general-button-interactive:focus {
   transform: translateY(-0.125rem);
 }
 
+/* Mobile Menu Toggle Button Interactive Styles */
+.mobile-menu-toggle-interactive {
+  transition: all 0.2s ease-out;
+  will-change: transform;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.mobile-menu-toggle-interactive:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.mobile-menu-toggle-interactive:focus {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.3), 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
 /* Disabled State */
-.interactive-element:disabled,
-.interactive-element-glass:disabled,
 .nav-link-interactive:disabled,
-.title-link-interactive:disabled,
-.button-interactive:disabled {
+.site-title-link-interactive:disabled,
+.general-button-interactive:disabled,
+.mobile-menu-toggle-interactive:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none !important;
@@ -136,13 +112,13 @@
   border-color: transparent !important;
 }
 
-/* Enhanced Active State for Navigation */
+/* Active Navigation Link State */
 .nav-link-active {
-  border: 2px solid var(--theme-purple);
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 25px rgba(147, 112, 219, 0.4), 0 0 0 1px rgba(147, 112, 219, 0.3);
-  font-weight: 700;
-  color: var(--text-primary);
+  border: 2px solid var(--theme-purple) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 25px rgba(147, 112, 219, 0.4), 0 0 0 1px rgba(147, 112, 219, 0.3) !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
   position: relative;
   transform: translateY(-0.125rem);
 }
@@ -156,30 +132,26 @@
   bottom: -2px;
   background: linear-gradient(45deg, var(--theme-purple), var(--theme-pink));
   border-radius: 0.875rem;
-  z-index: -1;
   opacity: 0.3;
 }
 
 /* Responsive Considerations */
 @media (prefers-reduced-motion: reduce) {
-  .interactive-element,
-  .interactive-element-glass,
   .nav-link-interactive,
-  .title-link-interactive,
-  .button-interactive {
+  .site-title-link-interactive,
+  .general-button-interactive,
+  .mobile-menu-toggle-interactive {
     transition: none;
   }
   
-  .interactive-element:hover,
-  .interactive-element:focus,
-  .interactive-element-glass:hover,
-  .interactive-element-glass:focus,
   .nav-link-interactive:hover,
   .nav-link-interactive:focus,
-  .title-link-interactive:hover,
-  .title-link-interactive:focus,
-  .button-interactive:hover,
-  .button-interactive:focus {
+  .site-title-link-interactive:hover,
+  .site-title-link-interactive:focus,
+  .general-button-interactive:hover,
+  .general-button-interactive:focus,
+  .mobile-menu-toggle-interactive:hover,
+  .mobile-menu-toggle-interactive:focus {
     transform: none;
   }
 }

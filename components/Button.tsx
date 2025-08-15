@@ -9,6 +9,7 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   loading?: boolean;
+  margin?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,7 +20,8 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   type = 'button',
   disabled = false,
-  loading = false
+  loading = false,
+  margin = ''
 }) => {
   const baseClasses = "my-2 relative inline-flex items-center justify-center font-medium transition-all duration-200 ease-out focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed hover:transform hover:-translate-y-1 focus:transform focus:-translate-y-0.5";
   
@@ -44,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
-      className={`${baseClasses} ${sizeClasses[size]} ${variants[variant]} ${className}`}
+      className={`${baseClasses} ${sizeClasses[size]} ${variants[variant]} ${className} ${margin}`}
     >
       {loading && (
         <svg 

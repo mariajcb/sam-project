@@ -23,7 +23,7 @@ export default function HomePage({ settings, home }: HomePageProps) {
     <Layout preview={false}>
       <Container padding="small">
         <Navigation items={settings?.navigation} settings={settings} />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-12">
             <div className="relative w-3/4 md:w-4/5 lg:w-full mx-auto aspect-[4/3] md:aspect-[3/4] rounded-2xl backdrop-blur-[16px] bg-white/25 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)] p-4">
               <div className="relative w-full h-full flex items-center justify-center">
