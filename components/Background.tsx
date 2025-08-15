@@ -9,8 +9,7 @@ const Background: React.FC = () => {
         backgroundSize: '200% 200%'
       }}
     >
-      {/* Optional subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[url('/subtle-pattern.png')] opacity-5" />
+      {/* Optional subtle pattern overlay - removed missing image reference */}
     </div>
   );
 };
