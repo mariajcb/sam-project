@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   loading = false
 }) => {
-  const baseClasses = "relative inline-flex items-center justify-center font-medium transition-all duration-200 ease-out focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseClasses = "my-2 relative inline-flex items-center justify-center font-medium transition-all duration-200 ease-out focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed";
   
   const sizeClasses = {
     sm: "px-3 py-1.5 text-sm rounded-md",

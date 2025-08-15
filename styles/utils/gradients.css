@@ -28,58 +28,7 @@
   }
 }
 
-/* Gradient Border Effect */
-.gradient-border {
-  position: relative;
-  border: 3px solid black;
-  border-radius: var(--radius-md);
-  transition: var(--transition-normal);
-}
 
-.gradient-border:hover {
-  border: none;
-  background: var(--gradient-hover);
-  background-size: 200% 200%;
-  animation: gradientAnimation 3s ease infinite;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  padding: 3px;
-}
-
-/* Gradient Text Effect */
-.gradient-text {
-  background: var(--gradient-hover);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientAnimation 3s ease infinite;
-}
-
-/* Gradient Underline Effect */
-.gradient-underline {
-  position: relative;
-}
-
-.gradient-underline::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 3px;
-  bottom: -15px;
-  left: 0;
-  background: var(--gradient-hover);
-  background-size: 200% 200%;
-  transition: width var(--transition-normal);
-}
-
-.gradient-underline:hover::after {
-  width: 100%;
-  animation: gradientAnimation 3s ease infinite;
-}
 
 /* Gradient Button Variants */
 .gradient-button {
@@ -266,74 +215,6 @@
   box-shadow: 
     0 6px 15px rgba(255, 105, 180, 0.3),
     0 0 12px rgba(147, 112, 219, 0.2);
-  transition: all 0.1s ease;
-}
-
-/* Glass Button */
-.glass-button {
-  position: relative;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  overflow: hidden;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, box-shadow, backdrop-filter;
-}
-
-.glass-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, var(--theme-pink-dark), var(--theme-purple-dark));
-  background-size: 200% 200%;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: -1;
-}
-
-.glass-button:hover::before {
-  opacity: 0.5;
-  animation: gradientAnimation 1s ease infinite;
-}
-
-.glass-button:hover {
-  transform: translateY(-6px) scale(1.08);
-  border-color: rgba(255, 105, 180, 0.7);
-  backdrop-filter: blur(20px);
-  background: rgba(0, 0, 0, 0.5);
-  box-shadow: 
-    0 20px 40px rgba(255, 105, 180, 0.4),
-    0 0 35px rgba(147, 112, 219, 0.3),
-    0 0 70px rgba(255, 105, 180, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  animation: hoverGlow 1s ease-in-out infinite;
-}
-
-.glass-button:focus {
-  outline: none;
-  box-shadow: 
-    0 0 0 4px rgba(255, 105, 180, 0.3),
-    0 0 0 8px rgba(147, 112, 219, 0.2),
-    0 15px 35px rgba(255, 105, 180, 0.2),
-    0 0 30px rgba(147, 112, 219, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px) scale(1.03);
-  border-color: rgba(255, 105, 180, 0.5);
-}
-
-.glass-button:focus:hover {
-  animation: pulseGlow 1.5s ease-in-out infinite;
-}
-
-.glass-button:active {
-  transform: translateY(-2px) scale(0.95);
-  box-shadow: 
-    0 10px 25px rgba(255, 105, 180, 0.3),
-    0 0 20px rgba(147, 112, 219, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: all 0.1s ease;
 }
 

@@ -17,10 +17,10 @@ export default function ContactPage({ settings }: ContactPageProps) {
     <Layout preview={false}>
       <Container padding="small">
         <Navigation items={settings?.navigation} settings={settings} />
-        <div className="max-w-2xl mx-auto mt-8">
+        <div className="max-w-2xl mx-auto mt-12">
           <TextBox>
             <h1 className="text-4xl font-bold mb-6">Contact</h1>
-            <div className="prose prose-lg mb-12">
+            <div className="prose prose-lg mb-8">
               <p>Get in touch with me for collaborations, inquiries, or just to say hello!</p>
             </div>
             

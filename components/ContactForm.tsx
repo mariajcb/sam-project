@@ -348,6 +348,7 @@ export default function ContactForm() {
           disabled={isSubmitting || !csrfToken}
           loading={isSubmitting}
           className="w-full"
+          margin="my-8"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>

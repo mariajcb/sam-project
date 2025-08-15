@@ -38,7 +38,7 @@ export default function PostPage(props: PostPageProps) {
       <Layout preview={preview} loading={loading}>
         <Container>
           <header>
-            <h2 className="mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter text-pretty">
+            <h2 className="mb-20 mt-12 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter text-pretty">
               <Link href="/" className="hover:underline">
                 {title}
               </Link>
