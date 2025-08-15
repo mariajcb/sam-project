@@ -45,9 +45,6 @@ const ButtonDemo: React.FC = () => {
           <Button variant="gradient-text" onClick={handleClick}>
             Gradient Text
           </Button>
-          <Button variant="glass" onClick={handleClick}>
-            Glass Button
-          </Button>
         </div>
       </div>
 
@@ -73,9 +70,6 @@ const ButtonDemo: React.FC = () => {
         <div className="flex flex-wrap gap-4">
           <Button variant="gradient" loading={loading} onClick={handleClick}>
             Loading Gradient
-          </Button>
-          <Button variant="glass" loading={loading} onClick={handleClick}>
-            Loading Glass
           </Button>
           <Button variant="gradient-outline" loading={loading} onClick={handleClick}>
             Loading Outline
@@ -111,9 +105,6 @@ const ButtonDemo: React.FC = () => {
           <Button variant="gradient" disabled>
             Disabled Gradient
           </Button>
-          <Button variant="glass" disabled>
-            Disabled Glass
-          </Button>
           <Button variant="gradient-outline" disabled>
             Disabled Outline
           </Button>
@@ -147,13 +138,6 @@ const ButtonDemo: React.FC = () => {
             <p className="text-sm text-gray-600 mt-2">Background Fade + Lift</p>
           </div>
           <div className="text-center">
-            <h3 className="font-semibold mb-3">Glass Button</h3>
-            <Button variant="glass" size="lg" className="w-full">
-              Hover Me
-            </Button>
-            <p className="text-sm text-gray-600 mt-2">Blur + Glow + Scale</p>
-          </div>
-          <div className="text-center">
             <h3 className="font-semibold mb-3">Primary Button</h3>
             <Button variant="primary" size="lg" className="w-full">
               Hover Me
@@ -184,9 +168,6 @@ const ButtonDemo: React.FC = () => {
           <Button variant="gradient-text" size="lg">
             Gradient Text (Tab to focus)
           </Button>
-          <Button variant="glass" size="lg">
-            Glass (Tab to focus)
-          </Button>
           <Button variant="primary" size="lg">
             Primary (Tab to focus)
           </Button>
@@ -211,9 +192,6 @@ const ButtonDemo: React.FC = () => {
           </Button>
           <Button variant="gradient-text" size="lg">
             Gradient Text
-          </Button>
-          <Button variant="glass" size="lg">
-            Glass
           </Button>
           <Button variant="primary" size="lg">
             Primary
