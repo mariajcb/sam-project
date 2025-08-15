@@ -4,6 +4,11 @@
   --theme-pink: #ff69b4;
   --theme-purple: #9370db;
   
+  /* Text Colors - White for contrast against intense gradient */
+  --text-primary: #ffffff;
+  --text-secondary: #f8f9fa;
+  --text-muted: #e9ecef;
+  
   /* Color Variations */
   --theme-pink-light: rgba(255, 105, 180, 0.5);
   --theme-purple-light: rgba(147, 112, 219, 0.5);
@@ -13,6 +18,9 @@
   
   /* Gradient Definitions */
   --gradient-primary: linear-gradient(45deg, var(--theme-pink-light), var(--theme-purple-light));
+  --gradient-background: linear-gradient(45deg, rgba(255, 105, 180, 0.8), rgba(147, 112, 219, 0.8));
+  --gradient-secondary: linear-gradient(135deg, var(--theme-pink-light), var(--theme-purple-light));
+  --gradient-animated: linear-gradient(45deg, var(--theme-pink), var(--theme-purple), var(--theme-pink-light), var(--theme-purple-light));
   --gradient-hover: linear-gradient(45deg, var(--theme-pink-dark), var(--theme-purple-dark));
 
   /* Spacing Scale */

@@ -26,12 +26,6 @@ export default function Container({
       sm:px-6 
       lg:px-8 
       ${paddingClasses[padding]}
-      backdrop-blur-sm
-      bg-white/5
-      rounded-2xl
-      border 
-      border-white/10
-      shadow-xl
       ${className}
     `}>
       {children}

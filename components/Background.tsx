@@ -5,7 +5,7 @@ const Background: React.FC = () => {
     <div 
       className="fixed inset-0 animate-gradient-slow"
       style={{
-        background: 'var(--gradient-primary)',
+        background: 'var(--gradient-background)',
         backgroundSize: '200% 200%'
       }}
     >

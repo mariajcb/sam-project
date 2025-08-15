@@ -2,7 +2,7 @@ import React from 'react';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'gradient' | 'gradient-outline' | 'gradient-text' | 'glass';
+  variant?: 'primary' | 'secondary' | 'outline' | 'gradient' | 'gradient-outline' | 'gradient-text';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
   onClick?: () => void;
@@ -37,7 +37,6 @@ const Button: React.FC<ButtonProps> = ({
     gradient: "gradient-button text-white shadow-lg hover:shadow-xl",
     'gradient-outline': "gradient-button-outline text-theme-purple hover:text-white",
     'gradient-text': "gradient-button-text bg-transparent text-gray-800",
-    glass: "glass-button text-white shadow-lg hover:shadow-xl"
   };
 
   return (
