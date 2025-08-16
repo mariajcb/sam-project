@@ -13,9 +13,9 @@ export default function Container({
 }: ContainerProps) {
   const paddingClasses = {
     none: '',
-    small: 'py-4',
-    medium: 'py-6',
-    large: 'py-8'
+    small: 'py-1',
+    medium: 'py-4',
+    large: 'py-6'
   };
 
   return (

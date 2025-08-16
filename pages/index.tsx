@@ -2,10 +2,12 @@ import Layout from 'components/BlogLayout'
 import Container from 'components/Container'
 import Navigation from 'components/Navigation'
 import TextBox from 'components/TextBox'
+import Button from 'components/Button'
 import { getClient } from 'lib/sanity.client'
 import { urlForImage } from 'lib/sanity.image'
 import type { Settings } from 'lib/sanity.queries'
 import Image from 'next/image'
+import Link from 'next/link'
 import { groq } from 'next-sanity'
 
 interface HomePageProps {
@@ -44,6 +46,17 @@ export default function HomePage({ settings, home }: HomePageProps) {
               <h1 className="text-4xl font-bold mb-6 text-gray-900">{home.title}</h1>
               <div className="prose prose-lg text-gray-800">
                 <p>{home.description}</p>
+              </div>
+              <div className="mt-6">
+                <Link href="/videos/reel2025" tabIndex={-1} className="focus:outline-none">
+                  <Button
+                    variant="gradient"
+                    size="lg"
+                    className="w-full"
+                  >
+                    See My Reel
+                  </Button>
+                </Link>
               </div>
             </TextBox>
           </div>
