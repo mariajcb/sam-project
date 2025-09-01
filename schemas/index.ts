@@ -2,6 +2,7 @@ import authorType from './author'
 import postType from './post'
 import settingsType from './settings'
 import navigationItemType from './settings/navigation'
+import socialMediaType from './settings/socialMedia'
 import blockContent from './blockContent'
 import category from './category'
 import home from './home'
@@ -14,6 +15,7 @@ export const schemaTypes = [
   postType,
   settingsType,
   navigationItemType,
+  socialMediaType,
   blockContent,
   category,
   home,

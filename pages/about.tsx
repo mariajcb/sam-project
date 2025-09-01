@@ -3,6 +3,7 @@ import Layout from 'components/BlogLayout'
 import Container from 'components/Container'
 import Navigation from 'components/Navigation'
 import { getClient } from 'lib/sanity.client'
+import { settingsQuery } from 'lib/sanity.queries'
 import type { Settings } from 'lib/sanity.queries'
 import { groq } from 'next-sanity'
 
@@ -17,8 +18,8 @@ export interface PageProps {
 
 export default function Page({ settings, about }: PageProps) {
   return (
-    <Layout preview={false}>
-      <Container padding="small">
+    <Layout preview={false} settings={settings}>
+      <Container padding="xl">
         <Navigation items={settings?.navigation} settings={settings} />
         <AboutPage settings={settings} about={about} />
       </Container>
@@ -28,7 +29,7 @@ export default function Page({ settings, about }: PageProps) {
 
 export async function getStaticProps() {
   const client = getClient()
-  const settings = await client.fetch(groq`*[_type == "settings"][0]`)
+  const settings = await client.fetch(settingsQuery)
   const about = await client.fetch(groq`*[_type == "about"][0]`)
 
   return {

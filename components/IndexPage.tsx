@@ -20,7 +20,7 @@ export default function IndexPage(props: IndexPageProps) {
     <>
       <IndexPageHead settings={settings} />
 
-      <Layout preview={preview} loading={loading}>
+      <Layout preview={preview} loading={loading} settings={settings}>
         <Container>
           <header className="mb-10 mt-16 text-pretty">
             <Navigation settings={settings} items={settings.navigation} />

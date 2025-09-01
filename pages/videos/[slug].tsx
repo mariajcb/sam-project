@@ -22,10 +22,10 @@ export default function VideoPage({ video, settings }: VideoPageProps) {
   }
 
   return (
-    <Layout preview={false}>
-      <Container padding="small">
+    <Layout preview={false} settings={settings}>
+      <Container padding="xl">
         <Navigation items={settings?.navigation} settings={settings} />
-        <div className="max-w-4xl mx-auto mt-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <VideoPlayer video={video} />
           </div>

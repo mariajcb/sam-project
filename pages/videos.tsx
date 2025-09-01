@@ -15,10 +15,10 @@ export interface VideosPageProps {
 
 export default function VideosPage({ settings, videos }: VideosPageProps) {
   return (
-    <Layout preview={false}>
-      <Container padding="small">
+    <Layout preview={false} settings={settings}>
+      <Container padding="xl">
         <Navigation items={settings?.navigation} settings={settings} />
-        <div className="max-w-7xl mx-auto mt-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
           <TextBox>
             <h1 className="text-4xl font-bold mb-6">Videos</h1>
             <div className="prose prose-lg mb-8">

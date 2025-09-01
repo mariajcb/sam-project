@@ -36,8 +36,8 @@ export default function PostsPage({ posts, settings }: PostsPageProps) {
         description="Browse our collection of blog posts"
         url={`${process.env.NEXT_PUBLIC_SITE_URL}/posts`}
       />
-      <Layout preview={false}>
-        <Container padding="small">
+      <Layout preview={false} settings={settings}>
+        <Container padding="xl">
           <header className="mb-8 mt-8 text-pretty">
             <Navigation settings={settings} items={settings.navigation} />
           </header>

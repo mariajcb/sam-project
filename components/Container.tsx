@@ -3,7 +3,7 @@ import React from 'react';
 interface ContainerProps {
   children: React.ReactNode;
   className?: string;
-  padding?: 'none' | 'small' | 'medium' | 'large';
+  padding?: 'none' | 'small' | 'medium' | 'large' | 'xl';
 }
 
 export default function Container({ 
@@ -15,7 +15,8 @@ export default function Container({
     none: '',
     small: 'py-1',
     medium: 'py-4',
-    large: 'py-6'
+    large: 'py-6',
+    xl: 'py-16'
   };
 
   return (

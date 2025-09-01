@@ -5,21 +5,38 @@ import {
   type Settings,
   settingsQuery,
 } from 'lib/sanity.queries'
-import { useLiveQuery } from 'next-sanity/preview'
+import { usePresentationQuery } from '@sanity/next-loader/hooks'
 
 export default function PreviewIndexPage(props: IndexPageProps) {
-  const [posts, loadingPosts] = useLiveQuery<Post[]>(props.posts, indexQuery)
-  const [settings, loadingSettings] = useLiveQuery<Settings>(
-    props.settings,
-    settingsQuery,
-  )
+  const { data: postsData } = usePresentationQuery<typeof indexQuery>({
+    query: indexQuery,
+  })
+
+  const { data: settingsData } = usePresentationQuery<typeof settingsQuery>({
+    query: settingsQuery,
+  })
+
+  const posts = postsData || props.posts || []
+  const settings = settingsData || props.settings
+
+  // Don't render until we have the data
+  if (!postsData || !settingsData) {
+    return (
+      <IndexPage
+        preview
+        loading={true}
+        posts={posts}
+        settings={settings}
+      />
+    )
+  }
 
   return (
     <IndexPage
       preview
-      loading={loadingPosts || loadingSettings}
-      posts={posts || []}
-      settings={settings || {}}
+      loading={false}
+      posts={posts}
+      settings={settings}
     />
   )
 }

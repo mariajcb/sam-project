@@ -5,6 +5,7 @@ import TextBox from 'components/TextBox'
 import Button from 'components/Button'
 import { getClient } from 'lib/sanity.client'
 import { urlForImage } from 'lib/sanity.image'
+import { settingsQuery } from 'lib/sanity.queries'
 import type { Settings } from 'lib/sanity.queries'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -22,11 +23,11 @@ interface HomePageProps {
 
 export default function HomePage({ settings, home }: HomePageProps) {
   return (
-    <Layout preview={false}>
-      <Container padding="small">
+    <Layout preview={false} settings={settings}>
+      <Container padding="xl">
         <Navigation items={settings?.navigation} settings={settings} />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
             <div className="relative w-3/4 md:w-4/5 lg:w-full mx-auto aspect-[4/3] md:aspect-[3/4] rounded-2xl backdrop-blur-[16px] bg-white/25 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)] p-4">
               <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-[90%] h-[90%] rounded-xl overflow-hidden">
@@ -68,7 +69,7 @@ export default function HomePage({ settings, home }: HomePageProps) {
 
 export async function getStaticProps() {
   const client = getClient()
-  const settings = await client.fetch(groq`*[_type == "settings"][0]`)
+  const settings = await client.fetch(settingsQuery)
   const home = await client.fetch(groq`*[_type == "home"][0]`)
 
   return {

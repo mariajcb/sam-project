@@ -23,7 +23,18 @@ const videoFields = groq`
   "categories": categories[]->{title, description},
 `
 
-export const settingsQuery = groq`*[_type == "settings"][0]`
+export const settingsQuery = groq`*[_type == "settings"][0]{
+  title,
+  description,
+  navigation,
+  showBlog,
+  ogImage,
+  "socialMedia": socialMedia[] | order(order asc) {
+    platform,
+    url,
+    description
+  }
+}`
 
 export const indexQuery = groq`
 *[_type == "post"] | order(date desc, _updatedAt desc) {
@@ -108,6 +119,12 @@ export interface NavigationItem {
   description?: string
 }
 
+export interface SocialMedia {
+  platform: string
+  url: string
+  description?: string
+}
+
 export interface Settings {
   title?: string
   description?: any[]
@@ -116,4 +133,5 @@ export interface Settings {
     title?: string
   }
   showBlog?: boolean
+  socialMedia?: SocialMedia[]
 }

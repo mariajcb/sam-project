@@ -4,6 +4,7 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import OpenGraphInput from './OpenGraphInput'
 import navigationItem from './navigation'
+import socialMedia from './socialMedia'
 
 export default defineType({
   name: 'settings',
@@ -87,6 +88,27 @@ export default defineType({
           type: 'string',
           initialValue: demo.ogImageTitle,
         }),
+      ],
+    }),
+    defineField({
+      name: 'socialMedia',
+      title: 'Social Media Links',
+      description: 'Add your social media profiles to display in the footer',
+      type: 'array',
+      of: [{ type: 'socialMedia' }],
+      initialValue: [
+        {
+          platform: 'linkedin',
+          url: 'https://linkedin.com/in/your-profile',
+          description: 'Follow us on LinkedIn',
+          order: 0,
+        },
+        {
+          platform: 'instagram',
+          url: 'https://instagram.com/your-profile',
+          description: 'Follow us on Instagram',
+          order: 1,
+        },
       ],
     }),
   ],
