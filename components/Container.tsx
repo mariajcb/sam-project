@@ -13,10 +13,10 @@ export default function Container({
 }: ContainerProps) {
   const paddingClasses = {
     none: '',
-    small: 'py-1',
-    medium: 'py-4',
-    large: 'py-6',
-    xl: 'py-16'
+    small: 'pb-1',
+    medium: 'pb-4',
+    large: 'pb-6',
+    xl: 'pb-16'
   };
 
   return (

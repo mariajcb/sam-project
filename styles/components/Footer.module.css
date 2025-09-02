@@ -110,16 +110,16 @@
 .credits {
   margin: 0;
   font-size: var(--font-size-sm);
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-weight: var(--font-weight-normal);
 }
 
 .githubLink {
-  color: var(--text-link);
-  text-decoration: none;
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
   font-weight: var(--font-weight-medium);
   transition: all var(--transition-fast);
-  border-bottom: 1px solid transparent;
 }
 
 .githubLink:hover {
