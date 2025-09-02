@@ -2,12 +2,12 @@
   width: 100%;
   margin: 0;
   padding: var(--spacing-lg) var(--spacing-xl);
-  backdrop-filter: blur(24px);
+  backdrop-filter: blur(var(--blur-xl));
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 16px 16px 0 0;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: none;
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 calc(-1 * var(--size-md)) var(--size-xl) rgba(0, 0, 0, 0.1);
   position: relative;
   flex-shrink: 0;
 }
@@ -41,11 +41,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: var(--size-2xl);
+  height: var(--size-2xl);
+  border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: var(--size-xs) solid rgba(255, 255, 255, 0.2);
   color: var(--text-primary);
   text-decoration: none;
   transition: all var(--transition-normal);
@@ -63,12 +63,12 @@
   background: linear-gradient(45deg, var(--theme-pink-light), var(--theme-purple-light));
   opacity: 0;
   transition: opacity var(--transition-normal);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
 }
 
 .socialLink:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(147, 112, 219, 0.3);
+  transform: translateY(calc(-1 * var(--size-xs)));
+  box-shadow: 0 var(--size-md) var(--size-xl) rgba(147, 112, 219, 0.3);
   border-color: rgba(147, 112, 219, 0.4);
 }
 
@@ -77,8 +77,8 @@
 }
 
 .socialLink:focus {
-  outline: 2px solid var(--theme-purple);
-  outline-offset: 2px;
+  outline: var(--size-xs) solid var(--theme-purple);
+  outline-offset: var(--size-xs);
 }
 
 .socialIcon {
@@ -117,7 +117,7 @@
 .githubLink {
   color: var(--text-primary);
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: var(--size-xs);
   font-weight: var(--font-weight-medium);
   transition: all var(--transition-fast);
 }
@@ -128,18 +128,18 @@
 }
 
 .githubLink:focus {
-  outline: 2px solid var(--theme-purple);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: var(--size-xs) solid var(--theme-purple);
+  outline-offset: var(--size-xs);
+  border-radius: var(--radius-sm);
 }
 
 /* Accessibility - Visually Hidden Elements */
 .visuallyHidden {
   position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
+  width: var(--size-xs) !important;
+  height: var(--size-xs) !important;
   padding: 0 !important;
-  margin: -1px !important;
+  margin: calc(-1 * var(--size-xs)) !important;
   overflow: hidden !important;
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
@@ -168,7 +168,7 @@
   .footerContainer {
     padding: var(--spacing-md);
     margin: 0;
-    border-radius: 12px 12px 0 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
   
   .footerContent {
@@ -185,8 +185,8 @@
   }
   
   .socialIcon {
-    width: 20px;
-    height: 20px;
+    width: var(--size-xl);
+    height: var(--size-xl);
   }
   
   .copyright,
@@ -198,7 +198,7 @@
 @media (max-width: 480px) {
   .footerContainer {
     padding: var(--spacing-sm);
-    border-radius: 12px 12px 0 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
   
   .socialLinks {

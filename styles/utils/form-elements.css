@@ -344,100 +344,34 @@
   box-shadow: none;
 }
 
-/* Loading State */
+/* Loading State - using animation from animations.css */
 .form-input-loading,
 .form-textarea-loading {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-/* Custom Focus Ring Animation */
-@keyframes formFocusRing {
-  0% {
-    box-shadow: 
-      0 0 0 0 rgba(147, 112, 219, 0.3),
-      0 0 0 0 rgba(147, 112, 219, 0.2);
-  }
-  50% {
-    box-shadow: 
-      0 0 0 4px rgba(147, 112, 219, 0.3),
-      0 0 0 8px rgba(147, 112, 219, 0.2);
-  }
-  100% {
-    box-shadow: 
-      0 0 0 0 rgba(147, 112, 219, 0.3),
-      0 0 0 0 rgba(147, 112, 219, 0.2);
-  }
-}
-
+/* Form Input Focus Ring Animation - using animation from animations.css */
 .form-input:focus,
 .form-textarea:focus,
 .form-select:focus {
   animation: formFocusRing 0.3s ease-out;
 }
 
-/* Enhanced Hover Glow Effect */
-@keyframes formHoverGlow {
-  0%, 100% {
-    box-shadow: 
-      0 4px 12px rgba(147, 112, 219, 0.2),
-      0 0 0 0 rgba(147, 112, 219, 0.1);
-  }
-  50% {
-    box-shadow: 
-      0 6px 16px rgba(147, 112, 219, 0.3),
-      0 0 0 4px rgba(147, 112, 219, 0.1);
-  }
-}
-
+/* Enhanced Hover Glow Effect - using animation from animations.css */
 .form-input:hover,
 .form-textarea:hover,
 .form-select:hover {
   animation: formHoverGlow 1.5s ease-in-out infinite;
 }
 
-/* Error State Glow */
-@keyframes formErrorGlow {
-  0%, 100% {
-    box-shadow: 
-      0 4px 12px rgba(239, 68, 68, 0.2),
-      0 0 0 0 rgba(239, 68, 68, 0.1);
-  }
-  50% {
-    box-shadow: 
-      0 6px 16px rgba(239, 68, 68, 0.3),
-      0 0 0 4px rgba(239, 68, 68, 0.1);
-  }
-}
-
+/* Error State Glow - using animation from animations.css */
 .form-input-error-state:hover,
 .form-textarea-error:hover,
 .form-select-error:hover {
   animation: formErrorGlow 1.5s ease-in-out infinite;
 }
 
-/* Success State Glow */
-@keyframes formSuccessGlow {
-  0%, 100% {
-    box-shadow: 
-      0 4px 12px rgba(34, 197, 94, 0.2),
-      0 0 0 0 rgba(34, 197, 94, 0.1);
-  }
-  50% {
-    box-shadow: 
-      0 6px 16px rgba(34, 197, 94, 0.3),
-      0 0 0 4px rgba(34, 197, 94, 0.1);
-  }
-}
-
+/* Success State Glow - using animation from animations.css */
 .form-input-success-state:hover,
 .form-textarea-success:hover,
 .form-select-success:hover {

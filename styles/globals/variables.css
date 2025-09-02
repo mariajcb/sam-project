@@ -32,13 +32,13 @@
   --theme-pink: #ff69b4;              /* Primary pink color */
   --theme-purple: #9370db;            /* Primary purple color */
   
-  /* Standardized Text Colors - AA Compliant */
+  /* Standardized Text Colors */
   --text-primary: #1a1a1a;           /* Main headings and important text */
   --text-secondary: #2d2d2d;         /* Body text and secondary content */
   --text-muted: #6b7280;             /* Muted text, placeholders */
   --text-link: #0066cc;              /* Link color */
 
-  /* Status Colors - AA Compliant */
+  /* Status Colors */
   --text-error: #991b1b;             /* Error messages */
   --text-success: #166534;           /* Success messages */
   
@@ -65,6 +65,21 @@
   --radius-sm: 0.25rem;    /* 4px - Small elements */
   --radius-md: 0.5rem;     /* 8px - Medium elements */
   --radius-lg: 1rem;       /* 16px - Large elements, cards */
+  --radius-xl: 1.5rem;     /* 24px - Extra large elements */
+  
+  /* Common Sizing Values */
+  --size-xs: 0.25rem;      /* 4px */
+  --size-sm: 0.5rem;       /* 8px */
+  --size-md: 1rem;         /* 16px */
+  --size-lg: 1.5rem;       /* 24px */
+  --size-xl: 2rem;         /* 32px */
+  --size-2xl: 3rem;        /* 48px */
+  
+  /* Blur Values */
+  --blur-sm: 4px;
+  --blur-md: 12px;
+  --blur-lg: 16px;
+  --blur-xl: 24px;
 
   /* Transitions - Consistent animation timing */
   --transition-fast: 0.2s ease;    /* Quick interactions */

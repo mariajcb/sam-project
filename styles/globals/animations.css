@@ -1,8 +1,8 @@
 /**
- * Gradient Animation System
+ * Animation System
  * 
- * This file contains all gradient animation keyframes and utility classes
- * for creating smooth, animated gradient backgrounds throughout the application.
+ * This file contains all animation keyframes and utility classes
+ * for creating smooth, animated effects throughout the application.
  * 
  * USAGE:
  * - Use .animate-gradient for fast 3s animations (good for interactive elements)
@@ -15,7 +15,7 @@
  * - Test animation performance on lower-end devices
  */
 
-/* Fast Gradient Animation - 3 seconds */
+/* Gradient Animation - 3 seconds (for interactive elements) */
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -28,7 +28,7 @@
   }
 }
 
-/* Slow Gradient Shift Animation - 45 seconds */
+/* Slow Gradient Shift Animation - 45 seconds (for background elements) */
 @keyframes gradient-shift {
   0% {
     background-position: 0% 50%;
@@ -38,6 +38,97 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+/* Pulse Glow Animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4), 0 0 40px rgba(147, 112, 219, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.6), 0 0 60px rgba(147, 112, 219, 0.5);
+  }
+}
+
+/* Hover Glow Animation */
+@keyframes hoverGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3), 0 0 30px rgba(147, 112, 219, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.5), 0 0 50px rgba(147, 112, 219, 0.4);
+  }
+}
+
+/* Form Focus Ring Animation */
+@keyframes formFocusRing {
+  0% {
+    box-shadow: 
+      0 0 0 0 rgba(147, 112, 219, 0.3),
+      0 0 0 0 rgba(147, 112, 219, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 0 4px rgba(147, 112, 219, 0.3),
+      0 0 0 8px rgba(147, 112, 219, 0.2);
+  }
+  100% {
+    box-shadow: 
+      0 0 0 0 rgba(147, 112, 219, 0.3),
+      0 0 0 0 rgba(147, 112, 219, 0.2);
+  }
+}
+
+/* Form Hover Glow Animation */
+@keyframes formHoverGlow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 12px rgba(147, 112, 219, 0.2),
+      0 0 0 0 rgba(147, 112, 219, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 6px 16px rgba(147, 112, 219, 0.3),
+      0 0 0 4px rgba(147, 112, 219, 0.1);
+  }
+}
+
+/* Form Error Glow Animation */
+@keyframes formErrorGlow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 12px rgba(239, 68, 68, 0.2),
+      0 0 0 0 rgba(239, 68, 68, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 6px 16px rgba(239, 68, 68, 0.3),
+      0 0 0 4px rgba(239, 68, 68, 0.1);
+  }
+}
+
+/* Form Success Glow Animation */
+@keyframes formSuccessGlow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 12px rgba(34, 197, 94, 0.2),
+      0 0 0 0 rgba(34, 197, 94, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 6px 16px rgba(34, 197, 94, 0.3),
+      0 0 0 4px rgba(34, 197, 94, 0.1);
+  }
+}
+
+/* Pulse Animation for Loading States */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }
 
@@ -53,4 +144,39 @@
 .animate-gradient-slow {
   animation: gradient-shift 45s ease infinite;
   background-size: 200% 200%;
+}
+
+/* Pulse glow for interactive elements */
+.animate-pulse-glow {
+  animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+/* Hover glow for interactive elements */
+.animate-hover-glow {
+  animation: hoverGlow 1s ease-in-out infinite;
+}
+
+/* Form focus ring animation */
+.animate-form-focus-ring {
+  animation: formFocusRing 0.3s ease-out;
+}
+
+/* Form hover glow animation */
+.animate-form-hover-glow {
+  animation: formHoverGlow 1.5s ease-in-out infinite;
+}
+
+/* Form error glow animation */
+.animate-form-error-glow {
+  animation: formErrorGlow 1.5s ease-in-out infinite;
+}
+
+/* Form success glow animation */
+.animate-form-success-glow {
+  animation: formSuccessGlow 1.5s ease-in-out infinite;
+}
+
+/* Loading state animation */
+.animate-loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 } 
