@@ -72,24 +72,24 @@ export default defineType({
       type: 'boolean',
       initialValue: false,
     }),
-    defineField({
-      name: 'ogImage',
-      title: 'Open Graph Image',
-      description:
-        'Used for social media previews when linking to the index page.',
-      type: 'object',
-      components: {
-        input: OpenGraphInput as any,
-      },
-      fields: [
-        defineField({
-          name: 'title',
-          title: 'Title',
-          type: 'string',
-          initialValue: demo.ogImageTitle,
-        }),
-      ],
-    }),
+    // defineField({
+    //   name: 'ogImage',
+    //   title: 'Open Graph Image',
+    //   description:
+    //     'Used for social media previews when linking to the index page.',
+    //   type: 'object',
+    //   components: {
+    //     input: OpenGraphInput as any,
+    //   },
+    //   fields: [
+    //     defineField({
+    //       name: 'title',
+    //       title: 'Title',
+    //       type: 'string',
+    //       initialValue: demo.ogImageTitle,
+    //     }),
+    //   ],
+    // }),
     defineField({
       name: 'socialMedia',
       title: 'Social Media Links',
@@ -100,13 +100,13 @@ export default defineType({
         {
           platform: 'linkedin',
           url: 'https://linkedin.com/in/your-profile',
-          description: 'Follow us on LinkedIn',
+          description: 'Follow me on LinkedIn',
           order: 0,
         },
         {
           platform: 'instagram',
           url: 'https://instagram.com/your-profile',
-          description: 'Follow us on Instagram',
+          description: 'Follow me on Instagram',
           order: 1,
         },
       ],
