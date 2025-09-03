@@ -1,8 +1,6 @@
 /**
  * Email Security Utilities
  * 
- * This file provides comprehensive email validation and security utilities
- * for the contact form email service.
  */
 
 import { securityConfig } from './security-config'
