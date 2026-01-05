@@ -1,13 +1,13 @@
 import { createClient } from '@sanity/client'
 import { ImageResponse } from '@vercel/og'
-import { apiVersion, dataset, projectId } from 'lib/sanity.api'
 import type { NextRequest, NextResponse } from 'next/server'
-
-export const config = { runtime: 'edge' }
 
 import { height, OpenGraphImage, width } from 'components/OpenGraphImage'
 import * as demo from 'lib/demo.data'
+import { apiVersion, dataset, projectId } from 'lib/sanity.api'
 import { Settings, settingsQuery } from 'lib/sanity.queries'
+
+export const config = { runtime: 'edge' }
 
 export default async function og(req: NextRequest, res: NextResponse) {
   const font = fetch(new URL('public/Inter-Bold.woff', import.meta.url)).then(
