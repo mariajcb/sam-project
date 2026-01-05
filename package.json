@@ -31,8 +31,8 @@
     "next": "15.3.8",
     "next-sanity": "^10.0.15",
     "next-sanity-image": "^6.2.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.1.2",
+    "react-dom": "19.1.2",
     "resend": "^6.0.1",
     "sanity": "^4.6.0",
     "sanity-plugin-asset-source-unsplash": "^4.0.1",
@@ -43,9 +43,9 @@
   "devDependencies": {
     "@tailwindcss/postcss": "4.1.3",
     "@tailwindcss/typography": "0.5.16",
-    "@types/react": "19.1.0",
+    "@types/react": "19.1.2",
     "eslint": "8.57.1",
-    "eslint-config-next": "15.3.0",
+    "eslint-config-next": "15.3.8",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "postcss": "8.5.3",
     "prettier": "3.5.3",
@@ -56,8 +56,8 @@
   },
   "overrides": {
     "next-sanity-image": {
-      "next": "15.3.0",
-      "react": "19.1.0"
+      "next": "15.3.8",
+      "react": "19.1.2"
     }
   },
   "engines": {
